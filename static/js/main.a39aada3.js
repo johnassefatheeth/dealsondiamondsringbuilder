@@ -34779,14 +34779,16 @@
                             className: "Pricemsg",
                             children: [a && (0, Nn.jsxs)("div", {
                                 className: "Price",
-                                children: ["MSRP $", "number" === typeof a ? a.toLocaleString("en-US", {
-                                    minimumFractionDigits: 0,
-                                    maximumFractionDigits: 0
-                                }) : a]
-                            }), a && (0, Nn.jsx)("div", {
-                                className: "MSG",
-                                children: "(Setting only)"
-                            })]
+                                // children: ["MSRP $", "number" === typeof a ? a.toLocaleString("en-US", {
+                                //     minimumFractionDigits: 0,
+                                //     maximumFractionDigits: 0
+                                // }) : a]
+                            }), a && (0, Nn.jsx)
+                            // ("div", {
+                            //     className: "MSG",
+                            //     children: "(Setting only)"
+                            // })
+                        ]
                         }), (0, Nn.jsxs)("div", {
                             className: "SaveBTN",
                             children: [
@@ -34816,7 +34818,7 @@
                                     document.getElementById('wana').style.display = 'flex';
                                     },
                                 children: (0, Nn.jsx)("span", {
-                                    children: [" Order ","number" === typeof a ? a.toLocaleString("en-US", {
+                                    children: [" Order for $","number" === typeof a ? a.toLocaleString("en-US", {
                                     minimumFractionDigits: 0,
                                     maximumFractionDigits: 0
                                 }) : a]
