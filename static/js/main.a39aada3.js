@@ -60367,14 +60367,14 @@
                 roughness: .05,
                 wireframe: !1
             })), [n]), O = Bo((e => e.setBandPave)), B = Bo((e => e.setBandVolume)), [L, D] = (0, r.useState)(0), [N, k] = (0, r.useState)(0), [F, U] = (0, r.useState)(0), [z, H] = (0, r.useState)(0), j = new Hm;
-            let G = ZM(yC, "../test/band/Band0.22V2.glb"),
-                V = ZM(yC, "../test/band/Band0.22Manufacturing0.99V2.glb"),
-                q = ZM(yC, "../test/band/Band0.22NoMetalLeft.glb"),
-                W = ZM(yC, "../test/band/Band0.22NoMetalLeftManufacturingV2.glb"),
-                X = ZM(yC, "../test/band/Band0.22NoMetalRight.glb"),
-                K = ZM(yC, "../test/band/Band0.22NoMetalRightManufacturingV2.glb"),
-                J = ZM(yC, "../test/band/Cathedral0.22V3.glb"),
-                Y = ZM(yC, "../test/band/Cathedral0.22Manufacturing.glb");
+            let G = ZM(yC, "../../test/band/Band0.22V2.glb"),
+                V = ZM(yC, "../../test/band/Band0.22Manufacturing0.99V2.glb"),
+                q = ZM(yC, "../../test/band/Band0.22NoMetalLeft.glb"),
+                W = ZM(yC, "../../test/band/Band0.22NoMetalLeftManufacturingV2.glb"),
+                X = ZM(yC, "../../test/band/Band0.22NoMetalRight.glb"),
+                K = ZM(yC, "../../test/band/Band0.22NoMetalRightManufacturingV2.glb"),
+                J = ZM(yC, "../../test/band/Cathedral0.22V3.glb"),
+                Y = ZM(yC, "../../test/band/Cathedral0.22Manufacturing.glb");
             S && (G = V, q = W, X = K, J = Y);
             let Q = (0, r.useRef)(0),
                 Z = 0,
@@ -64003,12 +64003,12 @@
             let I, [O, B, L, D, N] = C(T),
                 k = O;
             1 == O && (P = .3, [O, B, L, D, N] = C(T), k = O - 1), N * (180 / Math.PI) >= 32.5 && N * (180 / Math.PI) <= 37.5 ? I = 35 : N * (180 / Math.PI) > 37.5 && N * (180 / Math.PI) <= 42.5 ? I = 40 : N * (180 / Math.PI) > 42.5 && N * (180 / Math.PI) <= 47.5 ? I = 45 : N * (180 / Math.PI) > 47.5 && N * (180 / Math.PI) <= 52.5 ? I = 50 : N * (180 / Math.PI) > 52.5 && N * (180 / Math.PI) <= 57.5 ? I = 55 : N * (180 / Math.PI) > 57.5 && N * (180 / Math.PI) <= 62.5 ? I = 60 : N * (180 / Math.PI) > 62.5 && N * (180 / Math.PI) <= 67.5 ? I = 65 : N * (180 / Math.PI) > 67.5 && N * (180 / Math.PI) <= 72.5 ? I = 70 : N * (180 / Math.PI) > 72.5 && N * (180 / Math.PI) <= 77.5 ? I = 75 : N * (180 / Math.PI) > 77.5 && N * (180 / Math.PI) <= 82.5 ? I = 80 : N * (180 / Math.PI) > 82.5 && N * (180 / Math.PI) <= 87.5 && (I = 85);
-            let F = ZM(yC, "../using/prongarm/middle" + M + "/Middle" + k + w + ".glb"),
-                U = ZM(yC, "../using/prongarm/bottom" + M + "/Bottom" + w + ".glb"),
+            let F = ZM(yC, "../../using/prongarm/middle" + M + "/Middle" + k + w + ".glb"),
+                U = ZM(yC, "../../using/prongarm/bottom" + M + "/Bottom" + w + ".glb"),
                 z = ZM(yC, f.glb);
             const H = new Hm;
-            let j = ZM(yC, "../using/prongarm/tip" + M + "/WedgeTip" + I + w + ".glb"),
-                G = ZM(yC, "../using/prongarm/tip_manufacturing/Tip" + I + A + ".glb");
+            let j = ZM(yC, "../../using/prongarm/tip" + M + "/WedgeTip" + I + w + ".glb"),
+                G = ZM(yC, "../../using/prongarm/tip_manufacturing/Tip" + I + A + ".glb");
             const V = F.scene.clone(!0);
             let q = U.scene.clone(!0),
                 W = U.scene.children[0].children[0].geometry.clone();
@@ -64372,27 +64372,27 @@
                 s && (P += "Manufacturing");
                 let R = "";
                 "Asscher" != d.name && "Emerald" != d.name && "Radiant" != d.name || (R += "CutCorner");
-                const I = ZM(yC, "../using/halo/arm/Arm.glb"),
-                    O = ZM(yC, "../using/halo/arm/RoundTip" + R + ".glb"),
-                    B = ZM(yC, "../using/halo/arm/ClawTip" + R + ".glb"),
-                    L = ZM(yC, "../using/halo/arm/PetiteClawTip" + R + ".glb"),
-                    D = ZM(yC, "../using/halo/arm/TabTip" + R + ".glb"),
-                    N = ZM(yC, "../using/halo/arm_manufacturing/Tip" + R + "Manufacturing.glb"),
-                    k = ZM(yC, "../using/halo/arm/ArmCutCornerStraight.glb");
+                const I = ZM(yC, "../../using/halo/arm/Arm.glb"),
+                    O = ZM(yC, "../../using/halo/arm/RoundTip" + R + ".glb"),
+                    B = ZM(yC, "../../using/halo/arm/ClawTip" + R + ".glb"),
+                    L = ZM(yC, "../../using/halo/arm/PetiteClawTip" + R + ".glb"),
+                    D = ZM(yC, "../../using/halo/arm/TabTip" + R + ".glb"),
+                    N = ZM(yC, "../../using/halo/arm_manufacturing/Tip" + R + "Manufacturing.glb"),
+                    k = ZM(yC, "../../using/halo/arm/ArmCutCornerStraight.glb");
                 let F = XP(x, v, y, _, u, !1, null, null),
-                    U = ZM(yC, "../using/halo/block" + T + "/RoundEdge" + P + ".glb"),
-                    z = ZM(yC, "../using/halo/block" + T + "/OvalEdge" + P + ".glb"),
-                    H = ZM(yC, "../using/halo/block" + T + "/PrincessEdge" + P + ".glb"),
-                    j = ZM(yC, "../using/halo/block" + T + "/PrincessEdgeExtraMetal" + P + ".glb"),
-                    G = ZM(yC, "../using/halo/block" + T + "/PrincessCorner" + P + ".glb"),
-                    V = ZM(yC, "../using/halo/block" + T + "/AsscherEdge" + P + ".glb"),
-                    q = ZM(yC, "../using/halo/block" + T + "/AsscherEdgeExtraMetal" + P + ".glb"),
-                    W = ZM(yC, "../using/halo/block" + T + "/AsscherCorner" + P + ".glb"),
-                    X = ZM(yC, "../using/halo/block" + T + "/AsscherCornerMirrored" + P + ".glb"),
-                    K = ZM(yC, "../using/halo/block" + T + "/CushionCorner" + P + ".glb"),
-                    J = ZM(yC, "../using/halo/block" + T + "/CushionEdge" + P + ".glb"),
-                    Y = ZM(yC, "../using/halo/block" + T + "/MarquiseCorner" + P + ".glb"),
-                    Q = ZM(yC, "../using/halo/block" + T + "/MarquiseEdge" + P + ".glb");
+                    U = ZM(yC, "../../using/halo/block" + T + "/RoundEdge" + P + ".glb"),
+                    z = ZM(yC, "../../using/halo/block" + T + "/OvalEdge" + P + ".glb"),
+                    H = ZM(yC, "../../using/halo/block" + T + "/PrincessEdge" + P + ".glb"),
+                    j = ZM(yC, "../../using/halo/block" + T + "/PrincessEdgeExtraMetal" + P + ".glb"),
+                    G = ZM(yC, "../../using/halo/block" + T + "/PrincessCorner" + P + ".glb"),
+                    V = ZM(yC, "../../using/halo/block" + T + "/AsscherEdge" + P + ".glb"),
+                    q = ZM(yC, "../../using/halo/block" + T + "/AsscherEdgeExtraMetal" + P + ".glb"),
+                    W = ZM(yC, "../../using/halo/block" + T + "/AsscherCorner" + P + ".glb"),
+                    X = ZM(yC, "../../using/halo/block" + T + "/AsscherCornerMirrored" + P + ".glb"),
+                    K = ZM(yC, "../../using/halo/block" + T + "/CushionCorner" + P + ".glb"),
+                    J = ZM(yC, "../../using/halo/block" + T + "/CushionEdge" + P + ".glb"),
+                    Y = ZM(yC, "../../using/halo/block" + T + "/MarquiseCorner" + P + ".glb"),
+                    Q = ZM(yC, "../../using/halo/block" + T + "/MarquiseEdge" + P + ".glb");
                 const [Z, $] = (0, r.useState)(0);
                 return (0, r.useEffect)((() => {
                     let e = 0,
@@ -66514,10 +66514,10 @@
                 "Round" == u.name ? R += "Round" : "Oval" == u.name ? R += "Oval" : "Marquise" == u.name || "Pear" == u.name || "Cushion" == u.name ? R += "Curved" : R += "Straight";
                 let I = "";
                 "Round" == u.name || "Oval" == u.name ? I += "RoundBlockDiag" : "Marquise" == u.name || "Pear" == u.name ? I += "RoundBlock" : I += "StraightBlock";
-                let O = ZM(yC, "../using/basket/Block" + P + "/" + R + "Block0.15.glb"),
-                    B = ZM(yC, "../using/basket/Block" + P + "/" + R + "Block0.23.glb"),
-                    L = ZM(yC, "../using/basket/Plain" + P + "/" + I + "PlainLeft.glb"),
-                    D = ZM(yC, "../using/basket/Plain" + P + "/" + I + "PlainRight.glb");
+                let O = ZM(yC, "../../using/basket/Block" + P + "/" + R + "Block0.15.glb"),
+                    B = ZM(yC, "../../using/basket/Block" + P + "/" + R + "Block0.23.glb"),
+                    L = ZM(yC, "../../using/basket/Plain" + P + "/" + I + "PlainLeft.glb"),
+                    D = ZM(yC, "../../using/basket/Plain" + P + "/" + I + "PlainRight.glb");
                 return r.useEffect((() => {
                     T.current = 0;
                     let e = YP(u.name, p, f, 0, x, E, b, c),
