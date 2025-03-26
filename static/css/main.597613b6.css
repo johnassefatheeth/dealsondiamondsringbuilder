@@ -82,13 +82,13 @@
     box-sizing: border-box;
 }
 #wana button[type="submit"] {
-    background: #007BFF;
+    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
     color: white;
     border: none;
     cursor: pointer;
 }
 #wana button[type="submit"]:hover {
-    background: #0056b3;
+    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
 }
 
 .tippy-box[data-animation=fade][data-state=hidden] {
