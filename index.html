@@ -34,37 +34,24 @@
                 <button type="submit">Submit</button>
             </form>
     </div>
+    <div id="succ">
+        <button class="close-btn">✕</button>
+        <img width="350px" src="https://cdn-icons-png.flaticon.com/512/3686/3686948.png" alt="success image">
+            <h1>request sent successfuly</h1>
+    </div>
 </body>
 <script>
     document.querySelector('.close-btn').addEventListener('click', () => {
         document.querySelector('#wana').style.display = 'none';
+        document.querySelector('#succ').style.display = 'none';
+        });
+        
+        document.getElementById('succ').addEventListener('click', () => {
+        document.querySelector('#succ').style.display = 'none';
+        document.querySelector('#wana').style.display = 'none';
         });
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop page refresh
-
-    // Get form values
-    const name = document.querySelector('#wana input[type="text"]').value;
-    const email = document.querySelector('#wana input[type="email"]').value;
-    const phone = document.querySelector('#wana input[type="tel"]').value;
-
-    // Example: Log data to console (replace with actual submission logic)
-    console.log("Submitted:", { name, email, phone });
-
-    // Optional: Show a success message
-    alert("Thank you! We'll contact you soon.");
-
-    const buttons = document.getElementsByClassName('styles_btn_primary__DgUap');
-const buttonsArray = Array.from(buttons);
-const buttonNames = buttonsArray.map(button => button.textContent.trim());
-console.log(buttonNames);
-
-    // Close the popup after submission
-    document.querySelector('#wana').style.display = 'none';
-
-    // Optional: Reset the form
-    this.reset();
-});
+        
 </script>
 
 </html>

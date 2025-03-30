@@ -58,11 +58,25 @@
     z-index: 1000;
     display: none;
 }
+#succ {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+}
 #wana h2 {
     margin-top: 0;
     display: block;
 }
-#wana .close-btn {
+.close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -1493,7 +1507,7 @@ textarea {
 }
 
 .wrapper {
-    background-image: url(/static/media/bg%20desktop.ed3a0d5369575e850813.jpg);
+    background-image: url(https://dealsondiamonds.com/3d-ring-builder/static/media/bg%20desktop.ed3a0d5369575e850813.jpg);
     background-position: bottom;
     background-size: cover;
     height: 100%;
@@ -1573,7 +1587,7 @@ html {
         background-color: #d5d5d5
     }
     .RingmobileContainer {
-        background-image: url(/static/media/bgmobilecompressed.f789915f2e755b7f46db.jpg);
+        background-image: url(https://dealsondiamonds.com/3d-ring-builder/static/media/bg%20desktop.ed3a0d5369575e850813.jpg);
         background-position: bottom;
         background-size: cover;
         display: block;

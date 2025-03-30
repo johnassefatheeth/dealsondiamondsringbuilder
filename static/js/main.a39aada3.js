@@ -28535,7 +28535,7 @@
                     },
                     stoneElevation: "Tiered",
                     diamondtype: "Natural",
-                    prongMetalColor: "18K Yellow",
+                    prongMetalColor: "18K White",
                     prongArm: "Straight",
                     prongTip: "Claw",
                     prongPave: !1,
@@ -30598,7 +30598,7 @@
                 numOfStones: "one",
                 sideStonesChanged: !1,
                 band: {
-                    bandMetalColor: "18K Yellow",
+                    bandMetalColor: "18K White",
                     bandStyle: "Round",
                     bandCathedral: "None",
                     bandPaveStyle: "None",
@@ -33267,7 +33267,7 @@
                 btn_primary_border: "styles_btn_primary_border__nhuQz",
                 Editbtn: "styles_Editbtn__YvCWl"
             };
-        const xo = n.p + "static/media/narr.8624795ab09e02c88583a6aef714e236.svg";
+        const xo = "https://dealsondiamonds.com/3d-ring-builder/static/media/narr.8624795ab09e02c88583a6aef714e236.svg";
 
         function _o(e) {
             let {
@@ -33604,7 +33604,7 @@
                         onChange: f,
                         "aria-label": c,
                         style: {
-                            background: "linear-gradient(to right, rgb(88, 80, 236) 0%, rgb(88, 80, 236) ".concat(m, "%, #dee4ec ").concat(m, "%, #dee4ec 100%)")
+                            background: "linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%) ".concat(m, "%, #dee4ec ").concat(m, "%, #dee4ec 100%)")
                         }
                     })]
                 })
@@ -34792,13 +34792,13 @@
                         }), (0, Nn.jsxs)("div", {
                             className: "SaveBTN",
                             children: [
-                                // (0, Nn.jsxs)("button", {
-                                // className: "Save-icon",
-                                // onClick: () => {
-                                //     y.current += 1, d(!0), n(!0), c(null), p(null), m(null), o("design_finished"), window.parent.postMessage({
-                                //         type: "loading_next_step"
-                                //     }, "*")
-                                // },
+                        //         (0, Nn.jsxs)("button", {
+                        //         className: "Save-icon",
+                        //         onClick: () => {
+                        //             y.current += 1, d(!0), n(!0), c(null), p(null), m(null), o("design_finished"), window.parent.postMessage({
+                        //                 type: "loading_next_step"
+                        //             }, "*")
+                        //         },
                         //         children: [(0, Nn.jsx)("img", {
                         //             src: "./save.svg",
                         //             alt: "Save Design",
@@ -34814,8 +34814,101 @@
                         // ),
                              (0, Nn.jsx)("button", {
                                 className: "Save-btn",
-                                onClick: () => {                                    
+                                onClick: () => {       
+                                    console.log(Mn.storeKey)                             
                                     document.getElementById('wana').style.display = 'flex';
+                                    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+                                        e.preventDefault(); // Prevent default form submission
+                                    
+                                        const { changeNumOfStones, availableStones, alterState, initiateDefaultRing, ...bandDetails } = yn.getState();
+                                    
+                                        const name = document.querySelector('#wana input[type="text"]').value;
+                                        const email = document.querySelector('#wana input[type="email"]').value;
+                                        const phone = document.querySelector('#wana input[type="tel"]').value;
+                                    
+                                        const apiUrl = 'https://dealsondiamonds.com/wp-json/open-email/v1/send-deal-alert/'; 
+                                    
+                                        const messageData = {
+                                            name,
+                                            email,
+                                            phone,
+                                            bandDetails
+                                        }; console.log({ "message": messageData })
+                                        
+                                        
+                                        let result = '<div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 0 auto;">';
+
+                                        function formatBandDetails(obj, prefix = '') {
+                                          let entries = [];
+                                          for (const key in obj) {
+                                            if (obj.hasOwnProperty(key)) {
+                                              const fullKey = prefix ? `${prefix}.${key}` : key;
+                                              const value = obj[key];
+                                              
+                                              if (typeof value === 'object' && value !== null) {
+                                                entries = entries.concat(formatBandDetails(value, fullKey));
+                                              } else {
+                                                entries.push({ key: fullKey, value });
+                                              }
+                                            }
+                                          }
+                                          return entries;
+                                        }
+                                        
+                                        for (const key in messageData) {
+                                          if (messageData.hasOwnProperty(key)) {
+                                            if (key.toLowerCase() === 'banddetails') {
+                                              result += `<h3 style="color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 8px; margin: 25px 0 15px;">Band Details</h3>`;
+                                              
+                                              const details = formatBandDetails(messageData[key]);
+                                              details.forEach(({ key: detailKey, value }) => {
+                                                // Clean up key formatting
+                                                const cleanKey = detailKey
+                                                  .replace(/\./g, ' › ')
+                                                  .replace(/([a-z])([A-Z])/g, '$1 $2')
+                                                  .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2');
+                                                  
+                                                result += `
+                                                  <div style="margin: 8px 0; padding-left: 15px;">
+                                                    <strong style="color: #27ae60; display: inline-block; width: 240px;">${cleanKey}:</strong>
+                                                    <span style="color: #2c3e50;">${value}</span>
+                                                  </div>
+                                                `;
+                                              });
+                                            } else {
+                                              result += `
+                                                <div style="margin: 12px 0;">
+                                                  <strong style="color: #c0392b; display: inline-block; width: 160px;">${key}:</strong>
+                                                  <span style="color: #2c3e50;">${messageData[key]}</span>
+                                                </div>
+                                              `;
+                                            }
+                                          }
+                                        }
+                                        
+                                        result += '</div>';
+                                        try {
+                                            const response = await fetch(apiUrl, {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json'
+                                                },
+                                                body: JSON.stringify({ "message": result }) 
+                                            });
+                                    
+                                            if (response.ok) {
+                                                console.log("Data sent successfully");
+                                                document.getElementById('wana').style.display = 'none';
+                                                document.getElementById('succ').style.display = 'inline-block';
+                                            } else {
+                                                console.error("Failed to send data", await response.text());
+                                            }
+                                        } catch (error) {
+                                            console.error("Error sending data:", error);
+                                        }
+                                    });
+                                    
+                                    
                                     },
                                 children: (0, Nn.jsx)("span", {
                                     children: [" Order for $","number" === typeof a ? a.toLocaleString("en-US", {
@@ -34825,7 +34918,7 @@
                                 })
                             }), (0, Nn.jsx)("p", {
                                 className: "Mobile-message",
-                                children: "You can purchase as is or craft a fully custom ring"
+                                children: ""
                             })]
                         })]
                     })]
@@ -60369,14 +60462,14 @@
                 roughness: .05,
                 wireframe: !1
             })), [n]), O = Bo((e => e.setBandPave)), B = Bo((e => e.setBandVolume)), [L, D] = (0, r.useState)(0), [N, k] = (0, r.useState)(0), [F, U] = (0, r.useState)(0), [z, H] = (0, r.useState)(0), j = new Hm;
-            let G = ZM(yC, "../../test/band/Band0.22V2.glb"),
-                V = ZM(yC, "../../test/band/Band0.22Manufacturing0.99V2.glb"),
-                q = ZM(yC, "../../test/band/Band0.22NoMetalLeft.glb"),
-                W = ZM(yC, "../../test/band/Band0.22NoMetalLeftManufacturingV2.glb"),
-                X = ZM(yC, "../../test/band/Band0.22NoMetalRight.glb"),
-                K = ZM(yC, "../../test/band/Band0.22NoMetalRightManufacturingV2.glb"),
-                J = ZM(yC, "../../test/band/Cathedral0.22V3.glb"),
-                Y = ZM(yC, "../../test/band/Cathedral0.22Manufacturing.glb");
+            let G = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Band0.22V2.glb"),
+                V = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Band0.22Manufacturing0.99V2.glb"),
+                q = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Band0.22NoMetalLeft.glb"),
+                W = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Band0.22NoMetalLeftManufacturingV2.glb"),
+                X = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Band0.22NoMetalRight.glb"),
+                K = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Band0.22NoMetalRightManufacturingV2.glb"),
+                J = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Cathedral0.22V3.glb"),
+                Y = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/test/band/Cathedral0.22Manufacturing.glb");
             S && (G = V, q = W, X = K, J = Y);
             let Q = (0, r.useRef)(0),
                 Z = 0,
@@ -64005,12 +64098,12 @@
             let I, [O, B, L, D, N] = C(T),
                 k = O;
             1 == O && (P = .3, [O, B, L, D, N] = C(T), k = O - 1), N * (180 / Math.PI) >= 32.5 && N * (180 / Math.PI) <= 37.5 ? I = 35 : N * (180 / Math.PI) > 37.5 && N * (180 / Math.PI) <= 42.5 ? I = 40 : N * (180 / Math.PI) > 42.5 && N * (180 / Math.PI) <= 47.5 ? I = 45 : N * (180 / Math.PI) > 47.5 && N * (180 / Math.PI) <= 52.5 ? I = 50 : N * (180 / Math.PI) > 52.5 && N * (180 / Math.PI) <= 57.5 ? I = 55 : N * (180 / Math.PI) > 57.5 && N * (180 / Math.PI) <= 62.5 ? I = 60 : N * (180 / Math.PI) > 62.5 && N * (180 / Math.PI) <= 67.5 ? I = 65 : N * (180 / Math.PI) > 67.5 && N * (180 / Math.PI) <= 72.5 ? I = 70 : N * (180 / Math.PI) > 72.5 && N * (180 / Math.PI) <= 77.5 ? I = 75 : N * (180 / Math.PI) > 77.5 && N * (180 / Math.PI) <= 82.5 ? I = 80 : N * (180 / Math.PI) > 82.5 && N * (180 / Math.PI) <= 87.5 && (I = 85);
-            let F = ZM(yC, "../../using/prongarm/middle" + M + "/Middle" + k + w + ".glb"),
-                U = ZM(yC, "../../using/prongarm/bottom" + M + "/Bottom" + w + ".glb"),
+            let F = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/prongarm/middle" + M + "/Middle" + k + w + ".glb"),
+                U = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/prongarm/bottom" + M + "/Bottom" + w + ".glb"),
                 z = ZM(yC, f.glb);
             const H = new Hm;
-            let j = ZM(yC, "../../using/prongarm/tip" + M + "/WedgeTip" + I + w + ".glb"),
-                G = ZM(yC, "../../using/prongarm/tip_manufacturing/Tip" + I + A + ".glb");
+            let j = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/prongarm/tip" + M + "/WedgeTip" + I + w + ".glb"),
+                G = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/prongarm/tip_manufacturing/Tip" + I + A + ".glb");
             const V = F.scene.clone(!0);
             let q = U.scene.clone(!0),
                 W = U.scene.children[0].children[0].geometry.clone();
@@ -64374,27 +64467,27 @@
                 s && (P += "Manufacturing");
                 let R = "";
                 "Asscher" != d.name && "Emerald" != d.name && "Radiant" != d.name || (R += "CutCorner");
-                const I = ZM(yC, "../../using/halo/arm/Arm.glb"),
-                    O = ZM(yC, "../../using/halo/arm/RoundTip" + R + ".glb"),
-                    B = ZM(yC, "../../using/halo/arm/ClawTip" + R + ".glb"),
-                    L = ZM(yC, "../../using/halo/arm/PetiteClawTip" + R + ".glb"),
-                    D = ZM(yC, "../../using/halo/arm/TabTip" + R + ".glb"),
-                    N = ZM(yC, "../../using/halo/arm_manufacturing/Tip" + R + "Manufacturing.glb"),
-                    k = ZM(yC, "../../using/halo/arm/ArmCutCornerStraight.glb");
+                const I = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/arm/Arm.glb"),
+                    O = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/arm/RoundTip" + R + ".glb"),
+                    B = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/arm/ClawTip" + R + ".glb"),
+                    L = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/arm/PetiteClawTip" + R + ".glb"),
+                    D = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/arm/TabTip" + R + ".glb"),
+                    N = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/arm_manufacturing/Tip" + R + "Manufacturing.glb"),
+                    k = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/arm/ArmCutCornerStraight.glb");
                 let F = XP(x, v, y, _, u, !1, null, null),
-                    U = ZM(yC, "../../using/halo/block" + T + "/RoundEdge" + P + ".glb"),
-                    z = ZM(yC, "../../using/halo/block" + T + "/OvalEdge" + P + ".glb"),
-                    H = ZM(yC, "../../using/halo/block" + T + "/PrincessEdge" + P + ".glb"),
-                    j = ZM(yC, "../../using/halo/block" + T + "/PrincessEdgeExtraMetal" + P + ".glb"),
-                    G = ZM(yC, "../../using/halo/block" + T + "/PrincessCorner" + P + ".glb"),
-                    V = ZM(yC, "../../using/halo/block" + T + "/AsscherEdge" + P + ".glb"),
-                    q = ZM(yC, "../../using/halo/block" + T + "/AsscherEdgeExtraMetal" + P + ".glb"),
-                    W = ZM(yC, "../../using/halo/block" + T + "/AsscherCorner" + P + ".glb"),
-                    X = ZM(yC, "../../using/halo/block" + T + "/AsscherCornerMirrored" + P + ".glb"),
-                    K = ZM(yC, "../../using/halo/block" + T + "/CushionCorner" + P + ".glb"),
-                    J = ZM(yC, "../../using/halo/block" + T + "/CushionEdge" + P + ".glb"),
-                    Y = ZM(yC, "../../using/halo/block" + T + "/MarquiseCorner" + P + ".glb"),
-                    Q = ZM(yC, "../../using/halo/block" + T + "/MarquiseEdge" + P + ".glb");
+                    U = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/RoundEdge" + P + ".glb"),
+                    z = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/OvalEdge" + P + ".glb"),
+                    H = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/PrincessEdge" + P + ".glb"),
+                    j = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/PrincessEdgeExtraMetal" + P + ".glb"),
+                    G = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/PrincessCorner" + P + ".glb"),
+                    V = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/AsscherEdge" + P + ".glb"),
+                    q = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/AsscherEdgeExtraMetal" + P + ".glb"),
+                    W = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/AsscherCorner" + P + ".glb"),
+                    X = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/AsscherCornerMirrored" + P + ".glb"),
+                    K = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/CushionCorner" + P + ".glb"),
+                    J = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/CushionEdge" + P + ".glb"),
+                    Y = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/MarquiseCorner" + P + ".glb"),
+                    Q = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/halo/block" + T + "/MarquiseEdge" + P + ".glb");
                 const [Z, $] = (0, r.useState)(0);
                 return (0, r.useEffect)((() => {
                     let e = 0,
@@ -66516,10 +66609,10 @@
                 "Round" == u.name ? R += "Round" : "Oval" == u.name ? R += "Oval" : "Marquise" == u.name || "Pear" == u.name || "Cushion" == u.name ? R += "Curved" : R += "Straight";
                 let I = "";
                 "Round" == u.name || "Oval" == u.name ? I += "RoundBlockDiag" : "Marquise" == u.name || "Pear" == u.name ? I += "RoundBlock" : I += "StraightBlock";
-                let O = ZM(yC, "../../using/basket/Block" + P + "/" + R + "Block0.15.glb"),
-                    B = ZM(yC, "../../using/basket/Block" + P + "/" + R + "Block0.23.glb"),
-                    L = ZM(yC, "../../using/basket/Plain" + P + "/" + I + "PlainLeft.glb"),
-                    D = ZM(yC, "../../using/basket/Plain" + P + "/" + I + "PlainRight.glb");
+                let O = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/basket/Block" + P + "/" + R + "Block0.15.glb"),
+                    B = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/basket/Block" + P + "/" + R + "Block0.23.glb"),
+                    L = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/basket/Plain" + P + "/" + I + "PlainLeft.glb"),
+                    D = ZM(yC, "https://dealsondiamonds.com/3d-ring-builder/using/basket/Plain" + P + "/" + I + "PlainRight.glb");
                 return r.useEffect((() => {
                     T.current = 0;
                     let e = YP(u.name, p, f, 0, x, E, b, c),
@@ -68346,7 +68439,7 @@
                 const {
                     nodes: e,
                     scene: t
-                } = wP("./test/band/Band0.22.glb");
+                } = wP("https://dealsondiamonds.com/3d-ring-builder/test/band/Band0.22.glb");
                 let n = ZM(Fw, "diamond (1).hdr");
                 const i = (0, r.useRef)(),
                     [o, a] = (0, r.useState)(0),
@@ -68994,7 +69087,7 @@
                             ref: d,
                             enablePan: !1,
                             autoRotate: !0,
-                            autoRotateSpeed: 2,
+                            autoRotateSpeed: 12,
                             minDistance: window.innerWidth < 600 ? 3.5 : 3,
                             maxDistance: 10,
                             rotateSpeed: 1.5,
@@ -69136,3 +69229,4 @@
         }))
     })()
 })();
+
