@@ -18,7 +18,30 @@
     <title>Deals On Diamonds custom ring Builder</title>
     <script defer="defer" src="./static/js/main.a39aada3.js"></script> 
     <link href="./static/css/main.597613b6.css" rel="stylesheet">
-    
+    <style>
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        .loading::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 
 <body>
@@ -31,7 +54,7 @@
                 <input type="text" placeholder="Name" required>
                 <input type="email" placeholder="Email" required>
                 <input type="tel" placeholder="Phone (optional)">
-                <button type="submit">Submit</button>
+                <button type="submit" id="submitBtn">Submit</button>
             </form>
     </div>
     <div id="succ">
@@ -46,12 +69,35 @@
         document.querySelector('#succ').style.display = 'none';
         });
         
-        document.getElementById('succ').addEventListener('click', () => {
+    document.getElementById('succ').addEventListener('click', () => {
         document.querySelector('#succ').style.display = 'none';
         document.querySelector('#wana').style.display = 'none';
-        });
+    });
 
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
         
+        // Show loading state
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = ''; // Clear text while loading
+        
+        // Simulate form submission (replace with actual form submission)
+        setTimeout(() => {
+            // Hide loading state
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
+            submitBtn.textContent = 'Submit';
+            
+            // Show success message
+            document.querySelector('#wana').style.display = 'none';
+            document.querySelector('#succ').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+        }, 1500); // Simulate network delay
+    });
 </script>
 
 </html>

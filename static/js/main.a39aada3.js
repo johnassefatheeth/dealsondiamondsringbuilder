@@ -30598,7 +30598,7 @@
                 numOfStones: "one",
                 sideStonesChanged: !1,
                 band: {
-                    bandMetalColor: "18K White",
+                    bandMetalColor: "18K Yellow",
                     bandStyle: "Round",
                     bandCathedral: "None",
                     bandPaveStyle: "None",
@@ -30640,7 +30640,8 @@
                     }), !0)
                 },
                 initiateDefaultRing: t => e((e => ({ ...t,
-                    engravingFont: t.engravingFont ? t.engravingFont : "Block",
+                    engravingFont:  "Block",
+                    // t.engravingFont ? t.engravingFont :
                     changeNumOfStones: e.changeNumOfStones,
                     alterState: e.alterState
                 })), !0)
@@ -34815,7 +34816,9 @@
                              (0, Nn.jsx)("button", {
                                 className: "Save-btn",
                                 onClick: () => {       
-                                    console.log(Mn.storeKey)                             
+                                    // console.log(Mn.storeKey)  
+                                    
+                                    // console.log( yn.setState(yn.getState().initiateDefaultRing()))                           
                                     document.getElementById('wana').style.display = 'flex';
                                     document.getElementById('contactForm').addEventListener('submit', async function (e) {
                                         e.preventDefault(); // Prevent default form submission
@@ -34833,7 +34836,7 @@
                                             email,
                                             phone,
                                             bandDetails
-                                        }; console.log({ "message": messageData })
+                                        }; 
                                         
                                         
                                         let result = '<div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 0 auto;">';
