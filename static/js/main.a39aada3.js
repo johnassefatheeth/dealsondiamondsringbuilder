@@ -30302,18 +30302,37 @@
         });
         async function un(e) {
             let t;
-            return await fetch("https://diamonds5.azurewebsites.net/stone-api/get-ring-price/", {
+            const { changeNumOfStones, availableStones, alterState, initiateDefaultRing, ...bandDetails } = yn.getState();
+            // console.log("raw",bandDetails)
+            function flattenObject(obj, parentKey = '', result = {}) {
+                for (let key in obj) {
+                  if (obj.hasOwnProperty(key)) {
+                    let newKey = parentKey ? `${parentKey}.${key}` : key;
+                    
+                    if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                      flattenObject(obj[key], newKey, result);
+                    } else {
+                      result[newKey] = obj[key];
+                    }
+                  }
+                }
+                return result;
+              }
+              console.log(flattenObject(bandDetails))
+            //   https://diamonds5.azurewebsites.net/stone-api/get-ring-price/
+            return await fetch("https://dealsondiamonds.com/wp-json/jewelry/v1/calculate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: "Token 8f365b2027ef6a62b0a4027a5171238a09838305"
                 },
-                body: JSON.stringify(e)
+                body: JSON.stringify(flattenObject(bandDetails))
             }).then((e => e.json())).then((e => {
                 t = e
             })).catch((e => {
                 console.error("Error:", e)
             })), t
+
         }
         const dn = function() {
                 for (var e = arguments.length, t = new Array(e), n = 0; n < e; n++) t[n] = arguments[n];
@@ -34818,10 +34837,16 @@
                                 onClick: () => {       
                                     // console.log(Mn.storeKey)  
                                     
-                                    // console.log( yn.setState(yn.getState().initiateDefaultRing()))                           
+                                    // console.log( yn.getState())
+                                    const roge=Mn.getState().band;
+                                    // roge.prongMetalColor="18K White"
+                                    // roge.bandSize=12
+
+                                    console.log(roge)
+                                        // Mn.getState().alterBand(roge)                           
                                     document.getElementById('wana').style.display = 'flex';
                                     document.getElementById('contactForm').addEventListener('submit', async function (e) {
-                                        e.preventDefault(); // Prevent default form submission
+                                        e.preventDefault(); 
                                     
                                         const { changeNumOfStones, availableStones, alterState, initiateDefaultRing, ...bandDetails } = yn.getState();
                                     
@@ -34858,12 +34883,15 @@
                                           return entries;
                                         }
                                         
+
+                                        
                                         for (const key in messageData) {
                                           if (messageData.hasOwnProperty(key)) {
                                             if (key.toLowerCase() === 'banddetails') {
                                               result += `<h3 style="color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 8px; margin: 25px 0 15px;">Band Details</h3>`;
                                               
                                               const details = formatBandDetails(messageData[key]);
+                                                                                            
                                               details.forEach(({ key: detailKey, value }) => {
                                                 // Clean up key formatting
                                                 const cleanKey = detailKey
