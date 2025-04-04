@@ -38,6 +38,14 @@
             border-top-color: #fff;
             animation: spin 1s ease-in-out infinite;
         }
+        #back-img {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+        }
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
@@ -62,6 +70,7 @@
         <img width="350px" src="https://cdn-icons-png.flaticon.com/512/3686/3686948.png" alt="success image">
             <h1>request sent successfuly</h1>
     </div>
+    <a href="https://dealsondiamonds.com/"><img id="back-img"  src="https://cdn-icons-png.flaticon.com/512/5698/5698153.png" alt=""></a>
 </body>
 <script>
     document.querySelector('.close-btn').addEventListener('click', () => {
