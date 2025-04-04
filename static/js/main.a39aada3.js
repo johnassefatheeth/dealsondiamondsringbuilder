@@ -30491,6 +30491,8 @@
                     isInput: {
                         placeholder: "Carat Weight",
                         onChange: (e, n) => {
+                            console.log("onChange - n object:", e);
+                            console.log("onChange - allLimits:", n.allLimits);
                             const r = yn.getState(),
                                 i = r.availableStones,
                                 o = r.numOfStones,
@@ -30522,7 +30524,7 @@
                             if (xn("".concat(t, ".stone.caratWeight"))(e), wn(t, "stone.caratWeight", e), !l) return;
                             const {
                                 allLimits: c
-                            } = n, u = [c.threeStones.left.min, c.threeStones.left.max], d = e / 2;
+                            } = n, u = [c.threeStones.left.min, c.threeStones.left.max], d = e ;
                             let h;
                             if (d >= u[0] && d <= u[1]) h = d;
                             else {
@@ -30871,6 +30873,7 @@
                         {
                             data: t
                         } = await cn.get("ring/get-by-key-for-config/".concat(e));
+                        console.log("this is the T",t)
                     return t
                 } catch (e) {
                     throw e
@@ -30907,9 +30910,9 @@
                         two: "twoStones",
                         three: "threeStones"
                     }[r]];
-                    if ("one" === r) return a;
+                    if ("one" === r)  return a;
                     if ("two" === r) return a[n];
-                    if ("three" === r) return "center" === n ? [] : a
+                    if ("three" === r)return "center" === n ? [] : a
                 } catch (t) {
                     throw new Error(t)
                 }
@@ -30920,7 +30923,58 @@
                         queryKey: t
                     } = e, {
                         data: n
+
                     } = await cn.get("caratweight/get-all"), r = ((e, t) => {
+                        console.log("other sources", e ,t)
+                        e={
+                            createdAt: "2024-01-29T13:47:51.016Z",
+                            solitaire: {
+                              center: {
+                                max: 10,
+                                min: 0.25,
+                                value: 1,
+                                _id: "65b7ac87f9353e3a76d64aef"
+                              }
+                            },
+                            threeStones: {
+                              center: {
+                                max: 6,
+                                min: 0.25,
+                                value: 1,
+                                _id: "65b7ac87f9353e3a76d64af2"
+                              },
+                              left: {
+                                max: 2,
+                                min: 0.25,
+                                value: 1,
+                                _id: "65b7ac87f9353e3a76d64af3"
+                              },
+                              right: {
+                                max: 2,
+                                min: 0.25,
+                                value: 1,
+                                _id: "65b7ac87f9353e3a76d64af4"
+                              }
+                            },
+                            twoStones: {
+                              left: {
+                                max: 4,
+                                min: 0.25,
+                                value: 1,
+                                _id: "65b7ac87f9353e3a76d64af0"
+                              },
+                              right: {
+                                max: 4,
+                                min: 0.25,
+                                value: 1,
+                                _id: "65b7ac87f9353e3a76d64af1"
+                              }
+                            },
+                            updatedAt: "2024-01-29T13:47:51.016Z",
+                            __v: 0,
+                            _id: "65b7ac87f9353e3a76d64aee"
+                          
+                    }
                         const n = yn.getState().numOfStones,
                             r = {
                                 one: "solitaire",
@@ -30933,6 +30987,8 @@
                             i = r[t];
                         return e[r[n]][i]
                     })(n, t[1]);
+                    
+                    console.log("sources",r,n)
                     return {
                         ownLimits: r,
                         allLimits: n
@@ -34838,12 +34894,13 @@
                                     // console.log(Mn.storeKey)  
                                     
                                     // console.log( yn.getState())
-                                    const roge=Mn.getState().band;
-                                    // roge.prongMetalColor="18K White"
-                                    // roge.bandSize=12
+                                    let roge=yn.getState();
+                                    // roge.band.ringSize.set(12)
+
+                                    // roge.ringSize=12
 
                                     console.log(roge)
-                                        // Mn.getState().alterBand(roge)                           
+                                        Mn.getState().alterBand("ringSize" ,"12")                           
                                     document.getElementById('wana').style.display = 'flex';
                                     document.getElementById('contactForm').addEventListener('submit', async function (e) {
                                         e.preventDefault(); 
