@@ -986,7 +986,7 @@ input[type=number] {
     background-color: #e0f7ff
 }
 
-/* .Savebtn {
+.Savebtn {
     align-items: center;
     background: rgb(100, 220, 60);
     background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
@@ -1003,14 +1003,14 @@ input[type=number] {
     text-align: center;
     transition: .2s;
     width: 80%
-} */
+}
 
-/* .Savebtn:hover {
+.Savebtn:hover {
     background-color: #f5f5f5;
     background: #f5f5f5;
     border-color: rgb(100, 220, 60);
     color: rgb(100, 220, 60)
-} */
+}
 
 .styledbtn {
     align-items: center;
@@ -1287,11 +1287,11 @@ input[type=number] {
         line-height: auto;
         margin-top: .25rem
     }
-    /* .SaveBTN {
+    .SaveBTN {
         display: flex;
         flex-direction: column;
         width: 100%
-    } */
+    }
     .Mobile-message {
         color: #fff;
         display: block;
@@ -1431,7 +1431,7 @@ input[type=number] {
         text-align: left;
         width: 100%
     }
-    /* .Savebtn {
+    .Savebtn {
         align-items: center;
         background: none;
         background-color: rgb(100, 220, 60);
@@ -1448,13 +1448,13 @@ input[type=number] {
         text-align: center;
         transition: .2s;
         width: 80%
-    } */
-    /* .Savebtn:hover {
+    }
+    .Savebtn:hover {
         background-color: rgb(100, 220, 60);
         background: #f5f5f5;
         border-color: rgb(100, 220, 60);
         color: rgb(100, 220, 60)
-    } */
+    }
     .styledbtn {
         align-items: center;
         background-color: rgb(100, 220, 60);
