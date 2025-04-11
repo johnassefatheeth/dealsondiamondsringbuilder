@@ -115,7 +115,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 350px; /* Slightly wider to accommodate delete button */
     max-height: 70vh;
     overflow-y: auto;
     background: white;
@@ -135,8 +135,13 @@
     margin-bottom: 15px;
     color: #2e7d32;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   `;
-  header.textContent = 'Your Saved Rings';
+  header.innerHTML = `
+    <span>Your Saved Rings</span>
+  `;
   popup.appendChild(header);
   
   // Add designs or empty message
@@ -149,22 +154,63 @@
     for (const [name, url] of Object.entries(savedDesigns)) {
       const designItem = document.createElement('div');
       designItem.style.cssText = `
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         padding: 10px;
         margin: 8px 0;
         background: #f1f8e9;
         border-radius: 5px;
         border-left: 4px solid #81c784;
-        cursor: pointer;
         transition: all 0.2s;
       `;
-      designItem.innerHTML = `
+      
+      // Create clickable content area
+      const contentArea = document.createElement('div');
+      contentArea.style.cssText = `
+        flex: 1;
+        cursor: pointer;
+      `;
+      contentArea.innerHTML = `
         <div style="font-weight: bold; color: #2e7d32">${name}</div>
         <div style="font-size: 12px; color: #666; word-break: break-all;">${url}</div>
       `;
       
       // Open URL when clicked
-      designItem.addEventListener('click', () => {
+      contentArea.addEventListener('click', () => {
         window.open(url, '_blank');
+      });
+      
+      // Create delete button
+      const deleteBtn = document.createElement('button');
+      deleteBtn.innerHTML = '&times;';
+      deleteBtn.style.cssText = `
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        margin-left: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `;
+      
+      // Delete functionality
+      deleteBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent triggering the content click
+        
+        // Remove from saved designs
+        delete savedDesigns[name];
+        localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
+        
+        // Refresh the popup
+        document.body.removeChild(popup);
+        document.body.removeChild(overlay);
+        showSavedDesignsPopup();
       });
       
       // Hover effect
@@ -175,6 +221,9 @@
         designItem.style.background = '#f1f8e9';
       });
       
+      // Append elements
+      designItem.appendChild(contentArea);
+      designItem.appendChild(deleteBtn);
       popup.appendChild(designItem);
     }
   }
