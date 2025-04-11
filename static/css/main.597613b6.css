@@ -96,13 +96,13 @@
     box-sizing: border-box;
 }
 #wana button[type="submit"] {
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
     color: white;
     border: none;
     cursor: pointer;
 }
 #wana button[type="submit"]:hover {
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
 }
 
 .tippy-box[data-animation=fade][data-state=hidden] {
@@ -197,9 +197,9 @@
 .styles_btn__qwmIF {
     align-items: center;
     background-color: #fff;
-    border: 1px solid rgb(252, 132, 3);
+    border: 1px solid rgb(100, 220, 60);
     border-radius: 5px;
-    color: rgb(252, 132, 3);
+    color: rgb(100, 220, 60);
     cursor: pointer;
     display: flex;
     font-size: .875rem;
@@ -242,15 +242,15 @@
 }
 
 .styles_btn_primary__DgUap {
-    background-color: rgb(252, 132, 3);
-    background: rgb(252, 132, 3);
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
+    background-color: rgb(100, 220, 60);
+    background: rgb(100, 220, 60);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
     border: 1px solid #0000;
     color: #f5f5f5 !important
 }
 
 .styles_btn_primary_border__UoEWM {
-    border: 1px solid rgb(252, 132, 3);
+    border: 1px solid rgb(100, 220, 60);
     color: #000;
     font-weight: 700;
     padding-bottom: 12%;
@@ -260,9 +260,9 @@
 .styles_text_input__fnpPa {
     align-items: center;
     background-color: #fff;
-    border: 1px solid rgb(252, 132, 3);
+    border: 1px solid rgb(100, 220, 60);
     border-radius: 5px;
-    color: rgb(252, 132, 3);
+    color: rgb(100, 220, 60);
     display: flex;
     justify-content: center;
     margin-left: auto;
@@ -280,12 +280,12 @@
 .styles_submit__tIwIN {
     align-items: center;
     background-color: #fff;
-    background-color: rgb(252, 132, 3);
-    background: rgb(252, 132, 3);
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
+    background-color: rgb(100, 220, 60);
+    background: rgb(100, 220, 60);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
     border: 1px solid #0000;
     border-radius: 5px;
-    color: rgb(252, 132, 3);
+    color: rgb(100, 220, 60);
     color: #f5f5f5;
     cursor: pointer;
     display: flex;
@@ -355,8 +355,8 @@ input[type=number] {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    background-color: rgb(252, 132, 3);
-    border: 4px solid rgb(252, 132, 3);
+    background-color: rgb(100, 220, 60);
+    border: 4px solid rgb(100, 220, 60);
     border-radius: 50%;
     cursor: pointer;
     height: 24px;
@@ -366,11 +366,11 @@ input[type=number] {
 }
 
 .slider::-webkit-slider-thumb:hover {
-    background-color: rgb(252, 132, 3)
+    background-color: rgb(100, 220, 60)
 }
 
 .slider::-moz-range-thumb {
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
     border: 1px solid #aaa;
     border-radius: 50%;
     cursor: pointer;
@@ -389,7 +389,7 @@ input[type=number] {
 
 .Limitspan {
     bottom: -180%;
-    color: rgb(252, 132, 3);
+    color: rgb(100, 220, 60);
     position: absolute;
     width: auto
 }
@@ -503,9 +503,9 @@ input[type=number] {
 
 .PMSavebtn {
     align-items: center;
-    background: rgb(252, 132, 3);
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
-    border: 1px solid rgb(252, 132, 3);
+    background: rgb(100, 220, 60);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
+    border: 1px solid rgb(100, 220, 60);
     border-radius: 8px;
     display: flex;
     font-size: 1.25rem;
@@ -525,16 +525,16 @@ input[type=number] {
 }
 
 .PMSavebtn:hover {
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
-    border-color: rgb(252, 132, 3)
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
+    border-color: rgb(100, 220, 60)
 }
 
 .PMstyledbtn {
     align-items: center;
     background-color: #fff;
-    border: 2px solid rgb(252, 132, 3);
+    border: 2px solid rgb(100, 220, 60);
     border-radius: 8px;
-    color: rgb(252, 132, 3);
+    color: rgb(100, 220, 60);
     cursor: pointer;
     display: flex;
     font-size: 1.25rem;
@@ -596,7 +596,7 @@ input[type=number] {
         width: 80%
     }
     .PMstyledbtn {
-        background-color: rgb(252, 132, 3)
+        background-color: rgb(100, 220, 60)
     }
 }
 
@@ -711,7 +711,7 @@ input[type=number] {
 }
 
 #styleSB::-webkit-scrollbar-thumb {
-    background-color: rgb(252, 132, 3)
+    background-color: rgb(100, 220, 60)
 }
 
 .CPsection {
@@ -931,17 +931,17 @@ input[type=number] {
     width: auto
 }
 
-/* .Save-btn,
+.Save-btn,
 .SaveBTN {
     display: flex
-} */
+}
 
 .Save-btn {
     align-items: center;
-    background-color:  rgb(252, 132, 3);
+    background-color:  rgb(100, 220, 60);
     border: none;
     border-radius: 5px;
-    box-shadow: 0 0 20px 4px rgb(247, 185, 118), 0 4px 80px -8px rgb(251, 162, 66), 0 4px 4px -2px rgb(252, 132, 3);
+    box-shadow: 0 0 20px 4px rgb(100, 220, 60), 0 4px 80px -8px rgb(100, 220, 60), 0 4px 4px -2px rgb(100, 220, 60);
     color: #fff;
     cursor: pointer;
     font-family: Roboto, sans-serif;
@@ -958,7 +958,7 @@ input[type=number] {
 }
 
 .Save-btn:hover {
-    background-color: rgb(220, 174, 35)
+    background-color: rgb(0, 249, 125)
 }
 
 .manufacture {
@@ -986,11 +986,11 @@ input[type=number] {
     background-color: #e0f7ff
 }
 
-.Savebtn {
+/* .Savebtn {
     align-items: center;
-    background: #8023dc;
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
-    border: 1px solid rgb(252, 132, 3);
+    background: rgb(100, 220, 60);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
+    border: 1px solid rgb(100, 220, 60);
     border-radius: 5px;
     color: #f5f5f5;
     cursor: pointer;
@@ -1003,21 +1003,21 @@ input[type=number] {
     text-align: center;
     transition: .2s;
     width: 80%
-}
+} */
 
-.Savebtn:hover {
+/* .Savebtn:hover {
     background-color: #f5f5f5;
     background: #f5f5f5;
-    border-color: rgb(252, 132, 3);
-    color: rgb(252, 132, 3)
-}
+    border-color: rgb(100, 220, 60);
+    color: rgb(100, 220, 60)
+} */
 
 .styledbtn {
     align-items: center;
     background-color: #fff;
     background: #8023dc;
-    background: linear-gradient(95.31deg, rgb(252, 132, 3) 4.6%, rgb(220, 174, 35) 98.79%);
-    border: 2px solid rgb(252, 132, 3);
+    background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
+    border: 2px solid rgb(100, 220, 60);
     border-radius: 5px;
     color: #f5f5f5;
     cursor: pointer;
@@ -1035,7 +1035,7 @@ input[type=number] {
     background-color: #fff !important;
     background: none;
     border: 0 solid #000;
-    color: rgb(252, 132, 3)
+    color: rgb(100, 220, 60)
 }
 
 .Save-icon {
@@ -1086,7 +1086,7 @@ input[type=number] {
 
 .Pro-btn {
     background-color: #fff;
-    border: 2px solid rgb(252, 132, 3);
+    border: 2px solid rgb(100, 220, 60);
     border-radius: 4px;
     cursor: pointer;
     height: 26px;
@@ -1100,7 +1100,7 @@ input[type=number] {
 }
 
 .prodiscription {
-    color: rgb(252, 132, 3);
+    color: rgb(100, 220, 60);
     font-family: Roboto, sans-serif;
     font-size: .7vw;
     justify-content: flex-start;
@@ -1287,11 +1287,11 @@ input[type=number] {
         line-height: auto;
         margin-top: .25rem
     }
-    .SaveBTN {
+    /* .SaveBTN {
         display: flex;
         flex-direction: column;
         width: 100%
-    }
+    } */
     .Mobile-message {
         color: #fff;
         display: block;
@@ -1431,11 +1431,11 @@ input[type=number] {
         text-align: left;
         width: 100%
     }
-    .Savebtn {
+    /* .Savebtn {
         align-items: center;
         background: none;
-        background-color: rgb(252, 132, 3);
-        border: 1px solid rgb(252, 132, 3);
+        background-color: rgb(100, 220, 60);
+        border: 1px solid rgb(100, 220, 60);
         border-radius: 5px;
         color: #f5f5f5;
         cursor: pointer;
@@ -1448,17 +1448,17 @@ input[type=number] {
         text-align: center;
         transition: .2s;
         width: 80%
-    }
-    .Savebtn:hover {
-        background-color: #f5f5f5;
+    } */
+    /* .Savebtn:hover {
+        background-color: rgb(100, 220, 60);
         background: #f5f5f5;
-        border-color: rgb(252, 132, 3);
-        color: rgb(252, 132, 3)
-    }
+        border-color: rgb(100, 220, 60);
+        color: rgb(100, 220, 60)
+    } */
     .styledbtn {
         align-items: center;
-        background-color: rgb(252, 132, 3);
-        border: 2px solid rgb(252, 132, 3);
+        background-color: rgb(100, 220, 60);
+        border: 2px solid rgb(100, 220, 60);
         border-radius: 5px;
         color: #fff;
         cursor: pointer;
@@ -1558,12 +1558,12 @@ html {
 
 .engraving_toast button:first-child {
     background-color: #fff;
-    border: 2px solid rgb(252, 132, 3);
-    color: rgb(252, 132, 3)
+    border: 2px solid rgb(100, 220, 60);
+    color: rgb(100, 220, 60)
 }
 
 .engraving_toast button:nth-child(2) {
-    background-color: rgb(252, 132, 3);
+    background-color: rgb(100, 220, 60);
     border: 2px solid #fff;
     color: #fff
 }

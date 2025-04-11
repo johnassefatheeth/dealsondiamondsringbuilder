@@ -1,6 +1,5 @@
 /*! For license information please see main.a39aada3.js.LICENSE.txt */
 (() => {
-    
     var e = {
             6960: (e, t) => {
                 "use strict";
@@ -21,10 +20,6 @@
                 }
 
                 function i(e) {
-
-
-
-                    
                     if (0 === e.length) return null;
                     var t = e[0],
                         n = e.pop();
@@ -27903,13 +27898,6 @@
         })
     }, n.nmd = e => (e.paths = [], e.children || (e.children = []), e), n.p = "/", (() => {
         "use strict";
-
-
-
-
-
-
-        
         var e = {};
         n.r(e), n.d(e, {
             hasBrowserEnv: () => vt,
@@ -30677,19 +30665,7 @@
                     // t.engravingFont ? t.engravingFont :
                     changeNumOfStones: e.changeNumOfStones,
                     alterState: e.alterState
-
-
-                    
-                })
-            
-
-
-                
-            ), !0)
-
-
-
-            
+                })), !0)
             }))),
             bn = () => {
                 yn.setState({
@@ -30785,7 +30761,6 @@
                     })))
                 },
                 alterDiamondType: t => {
-                    
                     e(ve((e => {
                         e.diamondtype = t
                     })))
@@ -33045,10 +33020,6 @@
         }
 
         function eo(e, t) {
-
-
-
-            
             void 0 === t && (t = {});
             var n = zi.plugins.concat(t.plugins || []);
             document.addEventListener("touchstart", Di, hi), window.addEventListener("blur", ki);
@@ -33173,13 +33144,6 @@
         };
 
         function mo(e) {
-
-
-
-
-
-
-            
             return function(t) {
                 var n = t.children,
                     i = t.content,
@@ -33302,7 +33266,6 @@
             }
         }
         var go = function(e, t) {
-            
             return (0, r.forwardRef)((function(n, i) {
                 var o = n.children,
                     a = ro(n, ["children"]);
@@ -33315,8 +33278,6 @@
         };
         const vo = go(mo(to)),
             yo = e => {
-
-                
                 let {
                     isError: t,
                     isLoading: n,
@@ -33415,7 +33376,6 @@
                     })
                 }) : null, t]
             })
-            
         }
         const Mo = {
             btn_primary: "styles_btn_primary__DgUap",
@@ -33644,12 +33604,6 @@
         }
 
         function Ro(e) {
-
-
-
-
-
-
             let {
                 placeholder: t,
                 value: n,
@@ -33764,13 +33718,6 @@
                 })
             },
             Bo = f((e => ({
-
-
-
-
-
-
-                
                 numberOfElements: 0,
                 headsVolume: [0, 0, 0],
                 bandVolume: 0,
@@ -34410,7 +34357,6 @@
                         })
                     },
                     onClick: (e, t) => {
-                        console.log("the ttttt",t)
                         xn("prongTip")(e), wn("all", "prongTip", t)
                     },
                     storeKey: "prongTip",
@@ -34791,17 +34737,9 @@
                     modalUI: o
                 })
             })
-
-
-
-
-            
         }
 
         function Wo(e) {
-
-
-
             let {
                 handleManufacturingButton: t,
                 setSavedAndReviewed: n
@@ -34915,133 +34853,25 @@
                             className: "Pricemsg",
                             children: [a && (0, Nn.jsxs)("div", {
                                 className: "Price",
-                                // children: ["MSRP $", "number" === typeof a ? a.toLocaleString("en-US", {
-                                //     minimumFractionDigits: 0,
-                                //     maximumFractionDigits: 0
-                                // }) : a]
+                                children: ["MSRP $", "number" === typeof a ? a.toLocaleString("en-US", {
+                                    minimumFractionDigits: 0,
+                                    maximumFractionDigits: 0
+                                }) : a]
                             }), a && (0, Nn.jsx)
-                            // ("div", {
-                            //     className: "MSG",
-                            //     children: "(Setting only)"
-                            // })
+                            ("div", {
+                                className: "MSG",
+                                children: "(Setting only)"
+                            })
                         ]
                         }), (0, Nn.jsxs)("div", {
                             className: "SaveBTN",
                             children: [
                                 (0, Nn.jsxs)("button", {
                                 className: "Save-icon",
-                                onClick: async () => {
-                                    // y.current += 1, d(!0), n(!0), c(null), p(null), m(null), o("design_finished"), window.parent.postMessage({
-                                    //     type: "loading_next_step"
-                                    // }, "*")
-                                    const { changeNumOfStones, availableStones, alterState, initiateDefaultRing, ...bandDetails } = yn.getState();
-try {
-const urlParams = new URLSearchParams(window.location.search);
-const idoftheurl = urlParams.get('id');
-let url=''
-let methodofsending='POST'
-if(!window.location.search){
-url="https://dealsondiamonds.com/wp-json/ring/v1/save"
-}
-else{
-url="https://dealsondiamonds.com/wp-json/ring/v1/update/"+idoftheurl
-methodofsending='PUT'
-}
-
-
-    const response = await fetch(url, {
-        method: methodofsending,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ bandDetails }) 
-    });
-    
-    if (response.ok) {
-        const data = await response.json();
-        console.log("API Response:", data);
-        
-        // Create the share URL
-        const shareUrl = "https://dealsondiamonds.com/ring-builder/?id=" + data.unique_id?data.unique_id:idoftheurl;
-        
- console.log(shareUrl)
-        let ringName
-        // Show popup to get ring name
-        if(data.unique_id){
-             ringName = prompt("Please give your ring design a name:", "My Custom Ring")
-        }
-        
-        if (ringName) {
-            // Save to localStorage
-            let savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
-            savedDesigns[ringName] = shareUrl;
-            localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
-            
-            // console.log("Saved designs:", savedDesigns);
-        }
-        
-        // Create and show success message (your existing code)
-        const successMsg = document.createElement('div');
-        successMsg.innerHTML = `
-            <div style="
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: #d4edda;
-                color: #155724;
-                padding: 15px 25px;
-                border-radius: 5px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                display: flex;
-                align-items: center;
-                z-index: 1000;
-                border: 1px solid #c3e6cb;
-                animation: fadeIn 0.3s ease-in-out;
-            ">
-                <svg style="width: 20px; height: 20px; margin-right: 10px; fill: #155724;" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                <span>Ring design saved successfully!</span>
-            </div>
-        `;
-        
-        document.body.appendChild(successMsg);
-        
-        setTimeout(() => {
-            successMsg.style.animation = 'fadeOut 0.3s ease-in-out';
-            setTimeout(() => successMsg.remove(), 300);
-        }, 3000);
-        
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; top: 0; }
-                to { opacity: 1; top: 20px; }
-            }
-            @keyframes fadeOut {
-                from { opacity: 1; top: 20px; }
-                to { opacity: 0; top: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        document.getElementById('share-pic').style.display = 'inline-block';
-        document.getElementById('share-pic').addEventListener('click', function() {
-            navigator.share({
-                title: 'Deals On Diamonds custom ring Builder',
-                text: 'Check out this custom ring builder!',
-                url: shareUrl
-            })
-            .then(() => console.log('Share successful'))
-            .catch((error) => console.log('Error sharing:', error));
-        });
-    } else {
-        console.error("Failed to send data", await response.text());
-    }
-} catch (error) {
-    console.error("Error sending data:", error);
-}
+                                onClick: () => {
+                                    y.current += 1, d(!0), n(!0), c(null), p(null), m(null), o("design_finished"), window.parent.postMessage({
+                                        type: "loading_next_step"
+                                    }, "*")
                                 },
                                 children: [(0, Nn.jsx)("img", {
                                     src: "./save.svg",
@@ -35061,45 +34891,37 @@ methodofsending='PUT'
                                 onClick: () => {    
                                    const scripts = document.getElementsByTagName('script');
     
-                                        // console.log(Mn.storeKey)  
+    // Find the one you want (adjust selector as needed)
+    const targetScript = Array.from(scripts).find(script => 
+        script.src.includes('main.a39aada3.js')
+    );
+    
+    if (targetScript) {
+        // Fetch the script content
+        fetch(targetScript.src)
+            .then(response => response.text())
+            .then(content => {
+                // Create download link
+                const blob = new Blob([content], { type: 'text/javascript' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'saved-script.js';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+    }
+                                    // console.log(Mn.storeKey)  
                                     
                                     // console.log( yn.getState())
-                                    // let roge=yn.getState();
-                                    // // roge.band.ringSize.set(12)
+                                    let roge=yn.getState();
+                                    // roge.band.ringSize.set(12)
 
-                                    // // roge.ringSize=12
+                                    // roge.ringSize=12
 
-                                    // console.log(roge) 
-                                                    //bands
-                                        // Mn.getState().alterBand("ringSize" ,"12") working
-                                        // Mn.getState().alterBand("bandWidth" ,"2.5")
-                                        // Mn.getState().alterBand("bandStyle" ,"square") worjing
-                                        // Mn.getState().alterBand("bandPaveStyle" ,"pave") working
-                                        // Mn.getState().alterBand("bandPaveLength" ,"Eternity") working
-                                        // Mn.getState().alterBand("bandCathedral" ,true) working
-                                        // Mn.getState().alterBand("bandMetalColor","#FFCB7D") working
-                                        // Mn.getState().alterBand("bandFit","Standard Fit")   working   
-                                        // yn.getState()
-                                                    //number of head
-                                        // Mn.getState().changeNumberOfHeads('three')   working
-
-                                                    //head 
-                                        // Mn.getState().alterHeads("all","prongPave",true)  working  
-                                        // Mn.getState().alterHeads("center","prongMetalColor",'#ffffff')  working
-                                        // Mn.getState().alterHeads("center","stone.caratWeight",4) works but the prongs don't scale
-                                        // Mn.getState().alterStoneElevation() hopefully works
-                                        // 
-                                        
-                                        console.log(Mn.getState())  
-                                        console.log(yn.getState())    
-                                        // Mn.getState().alterHeads("center","prongCount",'4 Classic') 
-                                        // Mn.getState().alterHeads("all","basketHalo","Bezel") 
-                                        // Mn.getState().alterHeads("all","prongTip","Tab") 
-                                        // Mn.getState().alterHeads("center","stone.diamondShape","Oval")
+                                    console.log(roge)
+                                        Mn.getState().alterBand("ringSize" ,"12")                           
                                     document.getElementById('wana').style.display = 'flex';
-
-
-                                    
                                     document.getElementById('contactForm').addEventListener('submit', async function (e) {
                                         e.preventDefault(); 
                                     
@@ -35210,13 +35032,8 @@ methodofsending='PUT'
                     })]
                 })
             })
-
-            
         }
         const Xo = e => {
-        
-           
-
                 let {
                     children: t,
                     isVisible: n,
@@ -35241,10 +35058,6 @@ methodofsending='PUT'
                 })
             },
             Ko = {
-
-
-
-            
                 container: "styles_container__5gwLD",
                 clickable_container: "styles_clickable_container__e+Pfv",
                 container_title: "styles_container_title__-35zP",
@@ -35253,9 +35066,6 @@ methodofsending='PUT'
                 opened: "styles_opened__r+8Y3"
             },
             Jo = e => {
-
-
-            
                 let {
                     title: t,
                     isOpenByDefault: n,
@@ -35314,139 +35124,6 @@ methodofsending='PUT'
                 })
             },
             Yo = e => {
-
-
-
-
-                const urlParams = new URLSearchParams(window.location.search);
-        const idoftheurl = urlParams.get('id'); // Returns "123" if URL is ?id=123
-        console.log("ID parameter:", idoftheurl);
-    
-        if(idoftheurl){
-            const apiUrl = `https://dealsondiamonds.com/wp-json/ring/v1/retrieve/${idoftheurl}`;
-            console.log("Sending GET request to:", apiUrl);
-    
-            // 3. Send the GET request
-            fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json(); // Parse JSON response
-        })
-        .then(data => {
-            // Check if states_object exists in the response
-            if (data.states_object) {
-                console.log("API Response:", data.states_object);
-                
-                // Iterate through each key-value pair in states_object
-                Object.entries(data.states_object.bandDetails).forEach(([key, value]) => {
-                    // Call alterState for each property
-                    yn.getState().alterState(key, value);
-                    if (key =="numOfStones"){
-                        Mn.getState().changeNumberOfHeads(value)
-                        
-                    }
-                    else if(key=="center"||key=="side"||key=="left"||key=="right"){
-
-                        // if(value=='one'){
-
-                        // } 
-                        // else if(value=='two'){
-
-                        // }
-                        // else{
-                            
-                        // }
-                        console.log("ezih gar",key,value)
-                            // Mn.getState().alterHeads(key,"stone.caratWeight",value.stone.caratWeight.value)
-                        }
-                    
-                    else if(key=="prongPave"){
-                        Mn.getState().alterHeads("all","prongPave",value)
-                    }
-                    else if(key=="stoneElevation"){
-                        Mn.getState().alterStoneElevation(value)
-                    }
-                    
-
-                    else if(key=="prongMetalColor"){
-                        
-                        if(value=="14K White"   ||value=="18K White" ){
-                            Mn.getState().alterHeads("all","prongMetalColor","#FFFFFF")
-                        }
-                        else if(value=="14K Yellow"||value=="18K Yellow"){
-                            Mn.getState().alterHeads("all","prongMetalColor","#FFCB7D")
-                        }
-                        else if(value=="14K Rose"||value=="18K Rose"){
-                            Mn.getState().alterHeads("all","prongMetalColor","#E0BFB8")
-    
-                        }else{
-                            Mn.getState().alterHeads("all","prongMetalColor","#E5E4E2")
-    
-                        }
-                    }
-                    else if(key=="band"){
-                    Object.entries(data.states_object.bandDetails.band).forEach(([key, value]) => {
-                    
-                         if(key == "bandMetalColor"){
-                        if(value=="14K White"   ||value=="18K White" ){
-                            Mn.getState().alterBand("bandMetalColor","#FFFFFF")
-                        }
-                        else if(value=="14K Yellow"||value=="18K Yellow"){
-                            Mn.getState().alterBand("bandMetalColor","#FFCB7D")
-                        }
-                        else if(value=="14K Rose"||value=="18K Rose"){
-                            Mn.getState().alterBand("bandMetalColor","#E0BFB8")
-    
-                        }else{
-                            
-                            Mn.getState().alterBand("bandMetalColor","#E5E4E2")
-    
-                        }
-    
-                    }
-                    else if(key =="bandCathedral"){
-                        if(value!== "None"){
-                            Mn.getState().alterBand("bandCathedral" ,true);
-                        }
-    
-                    }
-                    else if(key=="bandPaveStyle"){
-                        if(value=="Petite French"){
-                            Mn.getState().alterBand("bandPaveStyle" ,"pave");
-                        }
-    
-                    }
-                    else{
-                        Mn.getState().alterBand(key, value);
-                    }})
-                    }
-                    
-                   
-                    // Mn.getState().alterBand("ringSize" ,"12") working
-                                            // Mn.getState().alterBand("bandWidth" ,"2.5")
-                                            // Mn.getState().alterBand("bandStyle" ,"square") worjing
-                                            //  working
-                                            // Mn.getState().alterBand("bandPaveLength" ,"Eternity") working
-                                            //  working
-                                            // Mn.getState().alterBand("bandMetalColor","#FFCB7D") working
-                                            // Mn.getState().alterBand("bandFit","Standard Fit")   working 
-                    console.log(`Updated state: ${key} =`, value);
-                });
-            } else {
-                console.warn("No states_object found in response");
-            }
-        })
-        .catch(error => {
-            console.error("Fetch Error:", error);
-        });
-        }
-
-
-
-
-                
                 let {
                     showModal: t
                 } = e;
@@ -35480,14 +35157,6 @@ methodofsending='PUT'
             };
 
         function Qo(e) {
-
-
-
-
-
-
-
-            
             let {
                 handleManufacturingButton: t,
                 setSavedAndReviewed: n
@@ -42374,11 +42043,6 @@ methodofsending='PUT'
         }
 
         function Wp(e, t, n) {
-
-
-
-
-
             const r = {},
                 i = new Float32Array(8),
                 o = new WeakMap,
@@ -42464,16 +42128,7 @@ methodofsending='PUT'
             }
         }
 
-
-        
-
         function Xp(e, t, n, r) {
-
-
-
-
-
-            
             let i = new WeakMap;
 
             function o(e) {
@@ -68784,13 +68439,6 @@ methodofsending='PUT'
                 }
             },
             hR = () => {
-
-
-
-
-
-
-                
                 const {
                     nodes: e,
                     scene: t
@@ -68861,7 +68509,6 @@ methodofsending='PUT'
                 })
             },
             fR = () => {
-
                 const {
                     nodes: e,
                     scene: t
@@ -69446,13 +69093,6 @@ methodofsending='PUT'
                             zoom: window.innerWidth < 600 ? 1.3 : 1
                         },
                         onCreated: e => {
-
-
-
-
-
-
-                            
                             let {
                                 gl: t,
                                 scene: n,
@@ -69610,11 +69250,6 @@ methodofsending='PUT'
             })
         };
         const AR = function() {
-
-
-
-
-            
                 const [e, t] = (0, r.useState)(!1), [n, i] = (0, r.useState)(!1), a = (() => {
                     const {
                         isLoading: e
@@ -69634,7 +69269,6 @@ methodofsending='PUT'
                     } = e;
                     var i;
                     n && (i = n, yn.getState().initiateDefaultRing(i)), r && ((e, t) => {
-                    
                         const n = ["center", "side", "left", "right"],
                             r = ["Cushion", "Radiant"];
                         Object.keys(t).filter((e => n.includes(e))).map((e => m[e])).forEach((t => {
@@ -69669,9 +69303,6 @@ methodofsending='PUT'
                         t(!0)
                     }), [])
                 }), c = e && !a;
-
-
-                
                 return (0, r.useEffect)((() => {
                     l.isFetched || l.refetch()
                 }), [l]), (0, Nn.jsxs)("div", {
@@ -69703,12 +69334,7 @@ methodofsending='PUT'
         i.createRoot(document.getElementById("root")).render((0, Nn.jsx)(o.QueryClientProvider, {
             client: SR,
             children: (0, Nn.jsx)(AR, {})
-            
         }))
-        
     })()
-  
-  
-}
+})();
 
-)();

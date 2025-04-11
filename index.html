@@ -46,6 +46,35 @@
             width: 50px;
             height: 50px;
         }
+        #share-pic {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            opacity: 0.7;
+            display: none;
+        }
+        #invs{
+            position: fixed;
+            top: 20px;
+            left: 90px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            opacity: 0.9;
+            background: linear-gradient(95.31deg, rgb(100, 220, 60) 4.6%, rgb(160, 240, 80) 98.79%);
+            display: block;
+            color: white;
+            border: none;
+            border-radius: 100%;
+        }
+        #save-image{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+        }
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
@@ -67,12 +96,142 @@
     </div>
     <div id="succ">
         <button class="close-btn">✕</button>
-        <img width="350px" src="https://cdn-icons-png.flaticon.com/512/3686/3686948.png" alt="success image">
-            <h1>request sent successfuly</h1>
+        <img width="350px" src="https://i.pinimg.com/564x/b8/cc/30/b8cc30277d4134cebca1105ac86be61c.jpg" alt="success image">
+            <h1>request sent successfuly<br> we dealers will contact you soon</h1>
     </div>
-    <a href="https://dealsondiamonds.com/"><img id="back-img"  src="https://cdn-icons-png.flaticon.com/512/5698/5698153.png" alt=""></a>
+    <a href="https://dealsondiamonds.com/"><img id="back-img"  src="https://icon-library.com/images/back-button-icon/back-button-icon-11.jpg" alt=""></a>
+    <img src="https://cdn3.iconfinder.com/data/icons/social-messaging-ui-color-line/254002/174-512.png" id="share-pic" alt="share">
+    <button id="invs" onclick="showSavedDesignsPopup()"><img id="save-image" src="https://images.all-free-download.com/images/graphiclarge/green_globe_save_603.jpg" alt=""></button>
 </body>
 <script>
+    function showSavedDesignsPopup() {
+  // Get saved designs from localStorage
+  const savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
+  
+  // Create popup container
+  const popup = document.createElement('div');
+  popup.style.cssText = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 20px;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+  `;
+  
+  // Add light green header
+  const header = document.createElement('div');
+  header.style.cssText = `
+    padding: 10px;
+    background: #e8f5e9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: #2e7d32;
+    font-weight: bold;
+  `;
+  header.textContent = 'Your Saved Rings';
+  popup.appendChild(header);
+  
+  // Add designs or empty message
+  if (Object.keys(savedDesigns).length === 0) {
+    const emptyMsg = document.createElement('p');
+    emptyMsg.textContent = 'No saved designs yet';
+    emptyMsg.style.textAlign = 'center';
+    popup.appendChild(emptyMsg);
+  } else {
+    for (const [name, url] of Object.entries(savedDesigns)) {
+      const designItem = document.createElement('div');
+      designItem.style.cssText = `
+        padding: 10px;
+        margin: 8px 0;
+        background: #f1f8e9;
+        border-radius: 5px;
+        border-left: 4px solid #81c784;
+        cursor: pointer;
+        transition: all 0.2s;
+      `;
+      designItem.innerHTML = `
+        <div style="font-weight: bold; color: #2e7d32">${name}</div>
+        <div style="font-size: 12px; color: #666; word-break: break-all;">${url}</div>
+      `;
+      
+      // Open URL when clicked
+      designItem.addEventListener('click', () => {
+        window.open(url, '_blank');
+      });
+      
+      // Hover effect
+      designItem.addEventListener('mouseenter', () => {
+        designItem.style.background = '#dcedc8';
+      });
+      designItem.addEventListener('mouseleave', () => {
+        designItem.style.background = '#f1f8e9';
+      });
+      
+      popup.appendChild(designItem);
+    }
+  }
+  
+  // Add close button
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.style.cssText = `
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 20px;
+    background: #81c784;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  `;
+  closeButton.addEventListener('click', () => {
+    document.body.removeChild(popup);
+    document.body.removeChild(overlay);
+  });
+  popup.appendChild(closeButton);
+  
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  `;
+  
+  // Close when clicking outside
+  overlay.addEventListener('click', () => {
+    document.body.removeChild(popup);
+    document.body.removeChild(overlay);
+  });
+  
+  // Add to DOM
+  document.body.appendChild(overlay);
+  document.body.appendChild(popup);
+  
+  // Add fade-in animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -45%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+        // document.querySelector('#wana').style.display = 'block';
     document.querySelector('.close-btn').addEventListener('click', () => {
         document.querySelector('#wana').style.display = 'none';
         document.querySelector('#succ').style.display = 'none';
@@ -107,6 +266,8 @@
             this.reset();
         }, 1500); // Simulate network delay
     });
-</script>
+
+
+ </script>
 
 </html>
