@@ -34962,7 +34962,8 @@ methodofsending='PUT'
         console.log("API Response:", data);
         
         // Create the share URL
-        const shareUrl = "https://dealsondiamonds.com/ring-builder/?id=" + data.unique_id?data.unique_id:idoftheurl;
+        const idw = data?.unique_id ?? idoftheurl ?? 'default-fallback-id';
+const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
         
  console.log(shareUrl)
         let ringName
