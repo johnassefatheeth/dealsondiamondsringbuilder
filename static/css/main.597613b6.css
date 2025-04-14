@@ -996,10 +996,10 @@ input[type=number] {
 
 .Save-btn {
     align-items: center;
-    background-color:  #375944;
+    background: linear-gradient(95.31deg, #d59e38 4.6%, #d4af37 98.79%);
     border: none;
     border-radius: 5px;
-    box-shadow: 0 0 20px 4px #375944, 0 4px 80px -8px #375944, 0 4px 4px -2px #375944;
+    box-shadow: 0 0 20px 4px #d4af37, 0 4px 80px -8px #d4af37, 0 4px 4px -2px #d4af37;
     color: #fff;
     cursor: pointer;
     font-family: Roboto, sans-serif;
