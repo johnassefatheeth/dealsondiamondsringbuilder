@@ -35340,7 +35340,7 @@
                                         Mn.getState().alterHeads("all","prongMetalColor","#FFCB7D")
                                     }
                                     else if(value=="14K Rose"||value=="18K Rose"){
-                                        Mn.getState().alterHeads("all","prongMetalColor","#E0BFB8")
+                                        Mn.getState().alterHeads("all","prongMetalColor","#d2a079")
                 
                                     }else{
                                         Mn.getState().alterHeads("all","prongMetalColor","#E5E4E2")
@@ -35358,7 +35358,7 @@
                                         Mn.getState().alterBand("bandMetalColor","#FFCB7D")
                                     }
                                     else if(value=="14K Rose"||value=="18K Rose"){
-                                        Mn.getState().alterBand("bandMetalColor","#E0BFB8")
+                                        Mn.getState().alterBand("bandMetalColor","#d2a079")
                 
                                     }else{
                                         
