@@ -34410,7 +34410,8 @@
                         })
                     },
                     onClick: (e, t) => {
-                        console.log("the ttttt",t)
+                        console.log("the ttttt",t,Mn.getState())
+                        
                         xn("prongTip")(e), wn("all", "prongTip", t)
                     },
                     storeKey: "prongTip",
@@ -34749,6 +34750,11 @@
                 options: [zo[18], zo[19], zo[17]]
             }],
             Go = e => {
+
+
+
+               
+                
                 let {
                     itemData: t,
                     navigationClick: n
@@ -34765,15 +34771,30 @@
                 }), [t, n])
             },
             Vo = e => {
+
+
+
+
+                
                 let {
                     modalUI: t
                 } = e;
                 return t.map(((e, t) => (0, Nn.jsx)(Go, {
                     itemData: e
                 }, t)))
+
+
+
+
+                
             };
 
         function qo(e) {
+
+
+
+
+
             let {
                 data: t,
                 isVisible: n,
@@ -34798,7 +34819,16 @@
             
         }
 
+
+
+        
+
         function Wo(e) {
+
+
+
+
+            
 
 
 
@@ -34947,6 +34977,7 @@ else{
 url="https://dealsondiamonds.com/wp-json/ring/v1/update/"+idoftheurl
 methodofsending='PUT'
 }
+let modelsSetup=Mn.getState()
 
 
     const response = await fetch(url, {
@@ -34954,7 +34985,7 @@ methodofsending='PUT'
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ bandDetails }) 
+        body: JSON.stringify({ bandDetails,modelsSetup }) 
     });
     
     if (response.ok) {
@@ -34963,7 +34994,7 @@ methodofsending='PUT'
         
         // Create the share URL
         const idw = data?.unique_id ?? idoftheurl ?? 'default-fallback-id';
-const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
+const shareUrl = `https://dealsondiamonds.com/3d-ring-builder//?id=${idw}`;
         
  console.log(shareUrl)
         let ringName
@@ -35060,7 +35091,7 @@ const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
                              (0, Nn.jsx)("button", {
                                 className: "Save-btn",
                                 onClick: () => {    
-                                   const scripts = document.getElementsByTagName('script');
+                                    // wn("all", "prongPave", true)
     
                                         // console.log(Mn.storeKey)  
                                     
@@ -35085,9 +35116,10 @@ const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
                                         // Mn.getState().changeNumberOfHeads('three')   working
 
                                                     //head 
-                                        // Mn.getState().alterHeads("all","prongPave",true)  working  
+                                        // Mn.getState().alterHeads("all","prongPave",true)  
                                         // Mn.getState().alterHeads("center","prongMetalColor",'#ffffff')  working
-                                        // Mn.getState().alterHeads("center","stone.caratWeight",4) works but the prongs don't scale
+                                        Mn.getState().alterHeads("left","stone.caratWeight",4)
+                                        //  works but the prongs don't scale
                                         // Mn.getState().alterStoneElevation() hopefully works
                                         // 
                                         
@@ -35209,14 +35241,25 @@ const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
                             })]
                         })]
                     })]
+
+
+
+
+                    
                 })
+
+
+
+
+
+                
             })
 
             
         }
         const Xo = e => {
         
-           
+            
 
                 let {
                     children: t,
@@ -35255,6 +35298,8 @@ const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
             },
             Jo = e => {
 
+
+                
 
             
                 let {
@@ -35318,133 +35363,152 @@ const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
 
 
 
-
-                const urlParams = new URLSearchParams(window.location.search);
-        const idoftheurl = urlParams.get('id'); // Returns "123" if URL is ?id=123
-        console.log("ID parameter:", idoftheurl);
-    
-        if(idoftheurl){
-            const apiUrl = `https://dealsondiamonds.com/wp-json/ring/v1/retrieve/${idoftheurl}`;
-            console.log("Sending GET request to:", apiUrl);
-    
-            // 3. Send the GET request
-            fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json(); // Parse JSON response
-        })
-        .then(data => {
-            // Check if states_object exists in the response
-            if (data.states_object) {
-                console.log("API Response:", data.states_object);
+                setTimeout(() => {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const idoftheurl = urlParams.get('id'); 
+                    console.log("ID parameter:", idoftheurl);
                 
-                // Iterate through each key-value pair in states_object
-                Object.entries(data.states_object.bandDetails).forEach(([key, value]) => {
-                    // Call alterState for each property
-                    yn.getState().alterState(key, value);
-                    if (key =="numOfStones"){
-                        Mn.getState().changeNumberOfHeads(value)
-                        
-                    }
-                    else if(key=="center"||key=="side"||key=="left"||key=="right"){
-
-                        // if(value=='one'){
-
-                        // } 
-                        // else if(value=='two'){
-
-                        // }
-                        // else{
+                    if(idoftheurl){
+                        const apiUrl = `https://dealsondiamonds.com/wp-json/ring/v1/retrieve/${idoftheurl}`;
+                        console.log("Sending GET request to:", apiUrl);
+                
+                        // 3. Send the GET request
+                        fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.json(); // Parse JSON response
+                    })
+                    .then(data => {
+                        if (data.states_object) {
+                            console.log("API Response:", data.states_object);
+    
+                            Object.entries(data.states_object.bandDetails).forEach(([key, value]) => {
+                                // Call alterState for each property data.states_object.bandDetails.numOfStones
+                                yn.getState().alterState(key, value);
+                                if (key =="numOfStones"){
+                                    Mn.getState().changeNumberOfHeads(value)
+                                    
+                                }
+                                
+                                else if(key=="stoneElevation"){
+                                    Mn.getState().alterStoneElevation(value)
+                                }
+                                
+            
+                                else if(key=="prongMetalColor"){
+                                    
+                                    if(value=="14K White"   ||value=="18K White" ){
+                                        Mn.getState().alterHeads("all","prongMetalColor","#FFFFFF")
+                                    }
+                                    else if(value=="14K Yellow"||value=="18K Yellow"){
+                                        Mn.getState().alterHeads("all","prongMetalColor","#FFCB7D")
+                                    }
+                                    else if(value=="14K Rose"||value=="18K Rose"){
+                                        Mn.getState().alterHeads("all","prongMetalColor","#E0BFB8")
+                
+                                    }else{
+                                        Mn.getState().alterHeads("all","prongMetalColor","#E5E4E2")
+                
+                                    }
+                                }
+                                else if(key=="band"){
+                                Object.entries(data.states_object.bandDetails.band).forEach(([key, value]) => {
+                                
+                                     if(key == "bandMetalColor"){
+                                    if(value=="14K White"   ||value=="18K White" ){
+                                        Mn.getState().alterBand("bandMetalColor","#FFFFFF")
+                                    }
+                                    else if(value=="14K Yellow"||value=="18K Yellow"){
+                                        Mn.getState().alterBand("bandMetalColor","#FFCB7D")
+                                    }
+                                    else if(value=="14K Rose"||value=="18K Rose"){
+                                        Mn.getState().alterBand("bandMetalColor","#E0BFB8")
+                
+                                    }else{
+                                        
+                                        Mn.getState().alterBand("bandMetalColor","#E5E4E2")
+                
+                                    }
+                
+                                }
+                                else if(key =="bandCathedral"){
+                                    if(value!== "None"){
+                                        Mn.getState().alterBand("bandCathedral" ,true);
+                                    }
+                
+                                }
+                                else if(key=="bandPaveStyle"){
+                                    if(value=="Petite French"){
+                                        Mn.getState().alterBand("bandPaveStyle" ,"pave");
+                                    }
+                
+                                }
+                                else{
+                                    Mn.getState().alterBand(key, value);
+                                }})
+                                }
+                                
+                            }
+                        );
                             
-                        // }
-                        console.log("ezih gar",key,value)
-                            // Mn.getState().alterHeads(key,"stone.caratWeight",value.stone.caratWeight.value)
-                        }
-                    
-                    else if(key=="prongPave"){
-                        Mn.getState().alterHeads("all","prongPave",value)
-                    }
-                    else if(key=="stoneElevation"){
-                        Mn.getState().alterStoneElevation(value)
-                    }
-                    
+                            if(data.states_object.bandDetails.numOfStones=='one'){
 
-                    else if(key=="prongMetalColor"){
+                                wn("all","prongTip",data.states_object.modelsSetup.heads[1].prongTip)
+                            wn("all","prongPave",data.states_object.modelsSetup.heads[1].prongPave)
+                            wn("all","basketHalo",data.states_object.modelsSetup.heads[1].basketHalo)
+                            wn("all","prongCount",data.states_object.modelsSetup.heads[1].prongCount)
+                            wn("all", "surpriseStones", data.states_object.modelsSetup.heads[1].surpriseStones)
+
+                            wn("all","orinentation",data.states_object.modelsSetup.heads[1].orientation)
+                            wn("all","prongArm",data.states_object.modelsSetup.heads[1].prongArm)
+                            wn("all","stone",data.states_object.modelsSetup.heads[1].stone)
+                            }
+                            else if (data.states_object.bandDetails.numOfStones=='two'){
+                                wn("all","prongTip",data.states_object.modelsSetup.heads[0].prongTip)
+                            wn("all","prongPave",data.states_object.modelsSetup.heads[0].prongPave)
+                            wn("all","basketHalo",data.states_object.modelsSetup.heads[0].basketHalo)
+                            wn("all","prongCount",data.states_object.modelsSetup.heads[0].prongCount)
+                            wn("all", "surpriseStones", data.states_object.modelsSetup.heads[0].surpriseStones)
+                                
+                                wn("left","orinentation",data.states_object.modelsSetup.heads[2].orientation)
+                            wn("left","prongArm",data.states_object.modelsSetup.heads[2].prongArm)
+                            wn("left","stone",data.states_object.modelsSetup.heads[2].stone) 
+                             
+                            wn("right","orinentation",data.states_object.modelsSetup.heads[0].orientation)
+                            wn("right","prongArm",data.states_object.modelsSetup.heads[0].prongArm)
+                            wn("right","stone",data.states_object.modelsSetup.heads[0].stone) 
+
+                            }
+                            else{
+
+                                wn("all","prongTip",data.states_object.modelsSetup.heads[1].prongTip)
+                            wn("all","prongPave",data.states_object.modelsSetup.heads[1].prongPave)
+                            wn("all","basketHalo",data.states_object.modelsSetup.heads[1].basketHalo)
+                            wn("all","prongCount",data.states_object.modelsSetup.heads[1].prongCount)
+                            wn("all", "surpriseStones", data.states_object.modelsSetup.heads[1].surpriseStones)
+
+                                wn("center","orinentation",data.states_object.modelsSetup.heads[1].orientation)
+                            wn("center","prongArm",data.states_object.modelsSetup.heads[1].prongArm)
+                            wn("center","stone",data.states_object.modelsSetup.heads[1].stone) 
+                             
+                            wn("side","orinentation",data.states_object.modelsSetup.heads[0].orientation)
+                            wn("side","prongArm",data.states_object.modelsSetup.heads[0].prongArm)
+                            wn("side","stone",data.states_object.modelsSetup.heads[0].stone)   
+                            }
                         
-                        if(value=="14K White"   ||value=="18K White" ){
-                            Mn.getState().alterHeads("all","prongMetalColor","#FFFFFF")
                         }
-                        else if(value=="14K Yellow"||value=="18K Yellow"){
-                            Mn.getState().alterHeads("all","prongMetalColor","#FFCB7D")
+                         else {
+                            console.warn("No states_object found in response");
                         }
-                        else if(value=="14K Rose"||value=="18K Rose"){
-                            Mn.getState().alterHeads("all","prongMetalColor","#E0BFB8")
-    
-                        }else{
-                            Mn.getState().alterHeads("all","prongMetalColor","#E5E4E2")
-    
-                        }
+                    })
+                    .catch(error => {
+                        console.error("Fetch Error:", error);
+                    });
                     }
-                    else if(key=="band"){
-                    Object.entries(data.states_object.bandDetails.band).forEach(([key, value]) => {
-                    
-                         if(key == "bandMetalColor"){
-                        if(value=="14K White"   ||value=="18K White" ){
-                            Mn.getState().alterBand("bandMetalColor","#FFFFFF")
-                        }
-                        else if(value=="14K Yellow"||value=="18K Yellow"){
-                            Mn.getState().alterBand("bandMetalColor","#FFCB7D")
-                        }
-                        else if(value=="14K Rose"||value=="18K Rose"){
-                            Mn.getState().alterBand("bandMetalColor","#E0BFB8")
-    
-                        }else{
-                            
-                            Mn.getState().alterBand("bandMetalColor","#E5E4E2")
-    
-                        }
-    
-                    }
-                    else if(key =="bandCathedral"){
-                        if(value!== "None"){
-                            Mn.getState().alterBand("bandCathedral" ,true);
-                        }
-    
-                    }
-                    else if(key=="bandPaveStyle"){
-                        if(value=="Petite French"){
-                            Mn.getState().alterBand("bandPaveStyle" ,"pave");
-                        }
-    
-                    }
-                    else{
-                        Mn.getState().alterBand(key, value);
-                    }})
-                    }
-                    
-                   
-                    // Mn.getState().alterBand("ringSize" ,"12") working
-                                            // Mn.getState().alterBand("bandWidth" ,"2.5")
-                                            // Mn.getState().alterBand("bandStyle" ,"square") worjing
-                                            //  working
-                                            // Mn.getState().alterBand("bandPaveLength" ,"Eternity") working
-                                            //  working
-                                            // Mn.getState().alterBand("bandMetalColor","#FFCB7D") working
-                                            // Mn.getState().alterBand("bandFit","Standard Fit")   working 
-                    console.log(`Updated state: ${key} =`, value);
-                });
-            } else {
-                console.warn("No states_object found in response");
-            }
-        })
-        .catch(error => {
-            console.error("Fetch Error:", error);
-        });
-        }
-
-
+                    }, 30);
+           
 
 
                 
@@ -35481,7 +35545,6 @@ const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
             };
 
         function Qo(e) {
-
 
 
 
@@ -69646,6 +69709,7 @@ const shareUrl = `https://dealsondiamonds.com/ring-builder/?id=${idw}`;
                             } = n;
                             !A(i.dimensions.length, i.dimensions.width) && r.includes(i.name) && (i.diamondShape = _(i.diamondShape))
                         })), Mn.getState().initiateRing(e)
+                        console.log("looking ofr",e)
                     })(r, n), t(!0)
                 }), []), l = (e => {
                     let {
