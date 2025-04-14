@@ -8,7 +8,6 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="deals on Diamonds 3d ring builder" />
     <link rel="apple-touch-icon" href="/logo192.png" />
-    <!-- <link rel="manifest" href="/manifest.json" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap" rel="stylesheet">
@@ -18,9 +17,6 @@
     <title>Deals On Diamonds custom ring Builder</title>
     <script defer="defer" src="./static/js/main.a39aada3.js"></script> 
     <link href="./static/css/main.597613b6.css" rel="stylesheet">
-    <style>
-        
-    </style>
 </head>
 
 <body>
@@ -42,7 +38,7 @@
             <h1>request sent successfuly<br> we dealers will contact you soon</h1>
     </div>
 
-    <a href="https://dealsondiamonds.com/"><img id="back-img"  src="/home-1-svgrepo-com.png" alt="home"></a>
+    <a href="https://dealsondiamonds.com/"><img id="back-img" src="/home-1-svgrepo-com.png" alt="home"></a>
 
     <img src="/share-svgrepo-com.png" id="share-pic" alt="share">
     <button id="invs">
@@ -51,190 +47,50 @@
 </body>
 <script>
 
+document.querySelectorAll('input, textarea, select').forEach(element => {
+    element.addEventListener('input', () => {
+        hasUnsavedChanges = true;
+    });
+});
 
-
-    function showSavedDesignsPopup() {
-  // Get saved designs from localStorage
-  const savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
-  
-  // Create popup container
-  const popup = document.createElement('div');
-  popup.style.cssText = `
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px; /* Slightly wider to accommodate delete button */
-    max-height: 70vh;
-    overflow-y: auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    padding: 20px;
-    z-index: 1000;
-    animation: fadeIn 0.3s;
-  `;
-  
-  // Add light green header
-  const header = document.createElement('div');
-  header.style.cssText = `
-    padding: 10px;
-    background: #e8f5e9;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    color: #2e7d32;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  `;
-  header.innerHTML = `
-    <span>Your Saved Rings</span>
-  `;
-  popup.appendChild(header);
-  
-  // Add designs or empty message
-  if (Object.keys(savedDesigns).length === 0) {
-    const emptyMsg = document.createElement('p');
-    emptyMsg.textContent = 'No saved designs yet';
-    emptyMsg.style.textAlign = 'center';
-    popup.appendChild(emptyMsg);
-  } else {
-    for (const [name, url] of Object.entries(savedDesigns)) {
-      const designItem = document.createElement('div');
-      designItem.style.cssText = `
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        margin: 8px 0;
-        background: #f1f8e9;
-        border-radius: 5px;
-        border-left: 4px solid #81c784;
-        transition: all 0.2s;
-      `;
-      
-      // Create clickable content area
-      const contentArea = document.createElement('div');
-      contentArea.style.cssText = `
-        flex: 1;
-        cursor: pointer;
-      `;
-      contentArea.innerHTML = `
-        <div style="font-weight: bold; color: #2e7d32">${name}</div>
-        <div style="font-size: 12px; color: #666; word-break: break-all;">${url}</div>
-      `;
-      
-      // Open URL when clicked
-      contentArea.addEventListener('click', () => {
-        window.open(url, '_blank');
-      });
-      
-      // Create delete button
-      const deleteBtn = document.createElement('button');
-      deleteBtn.innerHTML = '&times;';
-      deleteBtn.style.cssText = `
-        background: #ff6b6b;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 25px;
-        height: 25px;
-        margin-left: 10px;
-        cursor: pointer;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      `;
-      
-      // Delete functionality
-      deleteBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent triggering the content click
+setTimeout(() => {
+    document.addEventListener('click', function(e) {
+        const target = e.target;
         
-        // Remove from saved designs
-        delete savedDesigns[name];
-        localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
+        const button = target.closest('button') || target.closest('input[type="button"]') || 
+                      target.closest('input[type="submit"]');
         
-        // Refresh the popup
-        document.body.removeChild(popup);
-        document.body.removeChild(overlay);
-        showSavedDesignsPopup();
-      });
-      
-      // Hover effect
-      designItem.addEventListener('mouseenter', () => {
-        designItem.style.background = '#dcedc8';
-      });
-      designItem.addEventListener('mouseleave', () => {
-        designItem.style.background = '#f1f8e9';
-      });
-      
-      // Append elements
-      designItem.appendChild(contentArea);
-      designItem.appendChild(deleteBtn);
-      popup.appendChild(designItem);
-    }
-  }
-  
-  // Add close button
-  const closeButton = document.createElement('button');
-  closeButton.textContent = 'Close';
-  closeButton.style.cssText = `
-    display: block;
-    margin: 15px auto 0;
-    padding: 8px 20px;
-    background: #81c784;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  `;
-  closeButton.addEventListener('click', () => {
-    document.body.removeChild(popup);
-    document.body.removeChild(overlay);
-  });
-  popup.appendChild(closeButton);
-  
-  // Create overlay
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
-  `;
-  
-  // Close when clicking outside
-  overlay.addEventListener('click', () => {
-    document.body.removeChild(popup);
-    document.body.removeChild(overlay);
-  });
-  
-  // Add to DOM
-  document.body.appendChild(overlay);
-  document.body.appendChild(popup);
-  
-  // Add fade-in animation
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -45%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-        // document.querySelector('#wana').style.display = 'block';
+        if (button) {
+          
+            const excludedSelectors = [
+                '.Savebtn',
+                '.close-btn',
+                '#wana button[type="submit"]',
+                '.Save-btn',
+                '#back-img', 
+                '#share-pic',
+                '#invs'
+            ];
+            
+            
+            const isExcluded = excludedSelectors.some(selector => {
+                return button.matches(selector) || 
+                       button.closest(selector) !== null;
+            });
+            
+            if (!isExcluded) {
+                hasUnsavedChanges = true;
+            }
+        }
+    });
+    
+}, 3000); 
+    let nextPageUrl = null;
     document.querySelector('.close-btn').addEventListener('click', () => {
         document.querySelector('#wana').style.display = 'none';
         document.querySelector('#succ').style.display = 'none';
-        });
-        
+    });
+    
     document.getElementById('succ').addEventListener('click', () => {
         document.querySelector('#succ').style.display = 'none';
         document.querySelector('#wana').style.display = 'none';
@@ -243,130 +99,278 @@
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Show loading state
         const submitBtn = document.getElementById('submitBtn');
         submitBtn.disabled = true;
         submitBtn.classList.add('loading');
-        submitBtn.textContent = ''; // Clear text while loading
+        submitBtn.textContent = '';
         
-        // Simulate form submission (replace with actual form submission)
         setTimeout(() => {
-            // Hide loading state
             submitBtn.disabled = false;
             submitBtn.classList.remove('loading');
             submitBtn.textContent = 'Submit';
             
-            // Show success message
             document.querySelector('#wana').style.display = 'none';
             document.querySelector('#succ').style.display = 'block';
             
-            // Reset form
             this.reset();
-        }, 1500); // Simulate network delay
+        }, 1500);
     });
 
+    
+    function showSavedDesignsPopup() {
+        const savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
+        
+        const popup = document.createElement('div');
+        popup.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            padding: 20px;
+            z-index: 1000;
+            animation: fadeIn 0.3s;
+        `;
+        
+        const header = document.createElement('div');
+        header.style.cssText = `
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            color: #2e7d32;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        `;
+        header.innerHTML = `<span>Your Saved Rings</span>`;
+        popup.appendChild(header);
+        
+        if (Object.keys(savedDesigns).length === 0) {
+            const emptyMsg = document.createElement('p');
+            emptyMsg.textContent = 'No saved designs yet';
+            emptyMsg.style.textAlign = 'center';
+            popup.appendChild(emptyMsg);
+        } else {
+            for (const [name, url] of Object.entries(savedDesigns)) {
+                const designItem = document.createElement('div');
+                designItem.style.cssText = `
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px;
+                    margin: 8px 0;
+                    background: #f1f8e9;
+                    border-radius: 5px;
+                    border-left: 4px solid #81c784;
+                    transition: all 0.2s;
+                `;
+                
+                const contentArea = document.createElement('div');
+                contentArea.style.cssText = `flex: 1; cursor: pointer;`;
+                contentArea.innerHTML = `
+                    <div style="font-weight: bold; color: #2e7d32">${name}</div>
+                    <div style="font-size: 12px; color: #666; word-break: break-all;">${url}</div>
+                `;
+                
+                contentArea.addEventListener('click', () => {
+                    window.open(url, '_blank');
+                });
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '&times;';
+                deleteBtn.style.cssText = `
+                    background: #ff6b6b;
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    width: 25px;
+                    height: 25px;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                `;
+                
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    delete savedDesigns[name];
+                    localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
+                    document.body.removeChild(popup);
+                    document.body.removeChild(overlay);
+                    showSavedDesignsPopup();
+                });
+                
+                designItem.addEventListener('mouseenter', () => {
+                    designItem.style.background = '#dcedc8';
+                });
+                designItem.addEventListener('mouseleave', () => {
+                    designItem.style.background = '#f1f8e9';
+                });
+                
+                designItem.appendChild(contentArea);
+                designItem.appendChild(deleteBtn);
+                popup.appendChild(designItem);
+            }
+        }
+        
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Close';
+        closeButton.style.cssText = `
+            display: block;
+            margin: 15px auto 0;
+            padding: 8px 20px;
+            background: #81c784;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        `;
+        closeButton.addEventListener('click', () => {
+            document.body.removeChild(popup);
+            document.body.removeChild(overlay);
+        });
+        popup.appendChild(closeButton);
+        
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        `;
+        
+        overlay.addEventListener('click', () => {
+            document.body.removeChild(popup);
+            document.body.removeChild(overlay);
+        });
+        
+        document.body.appendChild(overlay);
+        document.body.appendChild(popup);
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translate(-50%, -45%); }
+                to { opacity: 1; transform: translate(-50%, -50%); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
 
+    
+    function showExitModal() {
+        const modal = document.createElement("div");
+        modal.id = "exitModal";
+        modal.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            max-width: 350px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        `;
+        modal.innerHTML = `
+            <h3 style="margin-top: 0; color: #333;">Unsaved Changes</h3>
+            <p style="color: #666; margin-bottom: 20px;">Do you want to save before leaving?</p>
+            <div style="display: flex; justify-content: center; gap: 10px;">
+                <button id="saveBtn" style="
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 4px;
+                    background: #375944;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">Save</button>
+                <button id="discardBtn" style="
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 4px;
+                    background: #f0f0f0;
+                    color: #333;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">Discard</button>
+            </div>
+        `;
 
+        const overlay = document.createElement("div");
+        overlay.id = "modalOverlay";
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        `;
 
-    // ====== CONFIG ====== //
-const UNSAVED_CHANGES = true; // Set to `true` if changes exist
-const THEME_COLOR = "#375944"; // Dark green theme
+        document.body.appendChild(overlay);
+        document.body.appendChild(modal);
 
-// ====== CODE ====== //
-let nextPageUrl = null; // Stores the URL if user clicks a link
+        modal.querySelector("#saveBtn").addEventListener("click", () => {
+           
+            
+            document.querySelector('.Save-icon').click();
+            setTimeout(() => {
+            removeModal();
+            if (nextPageUrl) window.location.href = nextPageUrl;},3000)
+        });
 
-// Detect page exit (closing/refreshing/navigating away)
-window.addEventListener('beforeunload', (e) => {
-  if (UNSAVED_CHANGES) {
-    // e.preventDefault();
-    showExitModal();
-    return ""; // Required for Chrome
-  }
-});
+        modal.querySelector("#discardBtn").addEventListener("click", () => {
+            hasUnsavedChanges = false;
+            removeModal();
+            if (nextPageUrl) window.location.href = nextPageUrl;
+        });
+    }
 
-// Detect link clicks (optional)
-document.addEventListener("click", (e) => {
-  const link = e.target.closest("a");
-  if (link && UNSAVED_CHANGES) {
-    nextPageUrl = link.href;
-    showExitModal();
-  }
-});
+    function removeModal() {
+        const modal = document.getElementById("exitModal");
+        const overlay = document.getElementById("modalOverlay");
+        if (modal) document.body.removeChild(modal);
+        if (overlay) document.body.removeChild(overlay);
+    }
 
-// Show the modal
-function showExitModal() {
-  const modal = document.createElement("div");
-  modal.innerHTML = `
-    <div style="
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-      max-width: 350px;
-      text-align: center;
-      font-family: Arial, sans-serif;
-    ">
-      <h3 style="margin-top: 0; color: #333;">Unsaved Changes</h3>
-      <p style="color: #666; margin-bottom: 20px;">Do you want to save before leaving?</p>
-      <div style="display: flex; justify-content: center; gap: 10px;">
-        <button id="saveBtn" style="
-          padding: 8px 16px;
-          border: none;
-          border-radius: 4px;
-          background: ${THEME_COLOR};
-          color: white;
-          font-weight: bold;
-          cursor: pointer;
-        ">Save</button>
-        <button id="discardBtn" style="
-          padding: 8px 16px;
-          border: none;
-          border-radius: 4px;
-          background: #f0f0f0;
-          color: #333;
-          font-weight: bold;
-          cursor: pointer;
-        ">Discard</button>
-      </div>
-    </div>
-    <div id="modalOverlay" style="
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-    "></div>
-  `;
+    // Navigation control
+    window.addEventListener('beforeunload', (e) => {
+        if (hasUnsavedChanges) {
+            e.preventDefault();
+            showExitModal();
+        }
+    });
 
-  document.body.appendChild(modal);
+    document.addEventListener("click", (e) => {
+        const link = e.target.closest("a");
+        if (link && hasUnsavedChanges && !link.href.includes('javascript:')) {
+            e.preventDefault();
+            nextPageUrl = link.href;
+            showExitModal();
+        }
+    });
 
-  // Handle Save button
-  modal.querySelector("#saveBtn").addEventListener("click", () => {
-    document.querySelector('#Savebtn').click();
-    removeModal();
-    if (nextPageUrl) window.location.href = nextPageUrl;
-  });
-
-  // Handle Discard button
-  modal.querySelector("#discardBtn").addEventListener("click", () => {
-    removeModal();
-    if (nextPageUrl) window.location.href = nextPageUrl;
-    else window.location.reload(); // Fallback for closing/refreshing
-  });
-
-  function removeModal() {
-    document.body.removeChild(modal);
-  }
+    function onSave() {
+    hasUnsavedChanges = false;
 }
 
-
- </script>
-
+document.querySelector('.Save-icon')?.addEventListener('click', onSave);
+</script>
 </html>

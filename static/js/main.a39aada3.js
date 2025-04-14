@@ -30315,7 +30315,6 @@
         async function un(e) {
             let t;
             const { changeNumOfStones, availableStones, alterState, initiateDefaultRing, ...bandDetails } = yn.getState();
-            // console.log("raw",bandDetails)
             function flattenObject(obj, parentKey = '', result = {}) {
                 for (let key in obj) {
                   if (obj.hasOwnProperty(key)) {
@@ -30331,7 +30330,6 @@
                 return result;
               }
               console.log(flattenObject(bandDetails))
-            //   https://diamonds5.azurewebsites.net/stone-api/get-ring-price/
             return await fetch("https://dealsondiamonds.com/wp-json/jewelry/v1/calculate", {
                 method: "POST",
                 headers: {
@@ -30503,8 +30501,6 @@
                     isInput: {
                         placeholder: "Carat Weight",
                         onChange: (e, n) => {
-                            console.log("onChange - n object:", e);
-                            console.log("onChange - allLimits:", n.allLimits);
                             const r = yn.getState(),
                                 i = r.availableStones,
                                 o = r.numOfStones,
@@ -30898,7 +30894,6 @@
                         {
                             data: t
                         } = await cn.get("ring/get-by-key-for-config/".concat(e));
-                        console.log("this is the T",t)
                     return t
                 } catch (e) {
                     throw e
@@ -34410,7 +34405,6 @@
                         })
                     },
                     onClick: (e, t) => {
-                        console.log("the ttttt",t,Mn.getState())
                         
                         xn("prongTip")(e), wn("all", "prongTip", t)
                     },
@@ -34950,10 +34944,6 @@
                                 //     maximumFractionDigits: 0
                                 // }) : a]
                             }), a && (0, Nn.jsx)
-                            // ("div", {
-                            //     className: "MSG",
-                            //     children: "(Setting only)"
-                            // })
                         ]
                         }), (0, Nn.jsxs)("div", {
                             className: "SaveBTN",
@@ -34961,119 +34951,107 @@
                                 (0, Nn.jsxs)("button", {
                                 className: "Save-icon",
                                 onClick: async () => {
-                                    // y.current += 1, d(!0), n(!0), c(null), p(null), m(null), o("design_finished"), window.parent.postMessage({
-                                    //     type: "loading_next_step"
-                                    // }, "*")
                                     const { changeNumOfStones, availableStones, alterState, initiateDefaultRing, ...bandDetails } = yn.getState();
-try {
-const urlParams = new URLSearchParams(window.location.search);
-const idoftheurl = urlParams.get('id');
-let url=''
-let methodofsending='POST'
-if(!window.location.search){
-url="https://dealsondiamonds.com/wp-json/ring/v1/save"
-}
-else{
-url="https://dealsondiamonds.com/wp-json/ring/v1/update/"+idoftheurl
-methodofsending='PUT'
-}
-let modelsSetup=Mn.getState()
+                                    try {
+                                    const urlParams = new URLSearchParams(window.location.search);
+                                    const idoftheurl = urlParams.get('id');
+                                    let url=''
+                                    let methodofsending='POST'
+                                    if(!window.location.search){
+                                    url="https://dealsondiamonds.com/wp-json/ring/v1/save"
+                                    }
+                                    else{
+                                    url="https://dealsondiamonds.com/wp-json/ring/v1/update/"+idoftheurl
+                                    methodofsending='PUT'
+                                    }
+                                    let modelsSetup=Mn.getState()
 
 
-    const response = await fetch(url, {
-        method: methodofsending,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ bandDetails,modelsSetup }) 
-    });
-    
-    if (response.ok) {
-        const data = await response.json();
-        console.log("API Response:", data);
-        
-        // Create the share URL
-        const idw = data?.unique_id ?? idoftheurl ?? 'default-fallback-id';
-const shareUrl = `https://dealsondiamonds.com/3d-ring-builder//?id=${idw}`;
-        
- console.log(shareUrl)
-        let ringName
-        // Show popup to get ring name
-        if(data.unique_id){
-             ringName = prompt("Please give your ring design a name:", "My Custom Ring")
-        }
-        
-        if (ringName) {
-            // Save to localStorage
-            let savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
-            savedDesigns[ringName] = shareUrl;
-            localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
-            
-            // console.log("Saved designs:", savedDesigns);
-        }
-        
-        // Create and show success message (your existing code)
-        const successMsg = document.createElement('div');
-        successMsg.innerHTML = `
-            <div style="
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: #d4edda;
-                color: #155724;
-                padding: 15px 25px;
-                border-radius: 5px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                display: flex;
-                align-items: center;
-                z-index: 1000;
-                border: 1px solid #c3e6cb;
-                animation: fadeIn 0.3s ease-in-out;
-            ">
-                <svg style="width: 20px; height: 20px; margin-right: 10px; fill: #155724;" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                <span>Ring design saved successfully!</span>
-            </div>
-        `;
-        
-        document.body.appendChild(successMsg);
-        
-        setTimeout(() => {
-            successMsg.style.animation = 'fadeOut 0.3s ease-in-out';
-            setTimeout(() => successMsg.remove(), 300);
-        }, 3000);
-        
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; top: 0; }
-                to { opacity: 1; top: 20px; }
-            }
-            @keyframes fadeOut {
-                from { opacity: 1; top: 20px; }
-                to { opacity: 0; top: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        document.getElementById('share-pic').style.display = 'inline-block';
-        document.getElementById('share-pic').addEventListener('click', function() {
-            navigator.share({
-                title: 'Deals On Diamonds custom ring Builder',
-                text: 'Check out this custom ring builder!',
-                url: shareUrl
-            })
-            .then(() => console.log('Share successful'))
-            .catch((error) => console.log('Error sharing:', error));
-        });
-    } else {
-        console.error("Failed to send data", await response.text());
-    }
-} catch (error) {
-    console.error("Error sending data:", error);
-}
+                                        const response = await fetch(url, {
+                                            method: methodofsending,
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            body: JSON.stringify({ bandDetails,modelsSetup }) 
+                                        });
+                                        
+                                        if (response.ok) {
+                                            const data = await response.json();
+                                            console.log("API Response:", data);
+                                            const idw = data?.unique_id ?? idoftheurl ?? 'default-fallback-id';
+                                            const shareUrl = `https://dealsondiamonds.com/3d-ring-builder//?id=${idw}`;
+                                            let ringName
+                                            if(data.unique_id){
+                                                ringName = prompt("Please give your ring design a name:", "My Custom Ring")
+                                            }
+                                            
+                                            if (ringName) {
+                                                let savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
+                                                savedDesigns[ringName] = shareUrl;
+                                                localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
+                                            }
+                                            
+                                            const successMsg = document.createElement('div');
+                                            successMsg.innerHTML = `
+                                                <div style="
+                                                    position: fixed;
+                                                    top: 20px;
+                                                    left: 50%;
+                                                    transform: translateX(-50%);
+                                                    background-color: #d4edda;
+                                                    color: #155724;
+                                                    padding: 15px 25px;
+                                                    border-radius: 5px;
+                                                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                                                    display: flex;
+                                                    align-items: center;
+                                                    z-index: 1000;
+                                                    border: 1px solid #c3e6cb;
+                                                    animation: fadeIn 0.3s ease-in-out;
+                                                ">
+                                                    <svg style="width: 20px; height: 20px; margin-right: 10px; fill: #155724;" viewBox="0 0 24 24">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                    </svg>
+                                                    <span>Ring design saved successfully!</span>
+                                                </div>
+                                            `;
+                                            
+                                            document.body.appendChild(successMsg);
+                                            
+                                            setTimeout(() => {
+                                                successMsg.style.animation = 'fadeOut 0.3s ease-in-out';
+                                                setTimeout(() => successMsg.remove(), 300);
+                                            }, 3000);
+                                            
+                                            const style = document.createElement('style');
+                                            style.textContent = `
+                                                @keyframes fadeIn {
+                                                    from { opacity: 0; top: 0; }
+                                                    to { opacity: 1; top: 20px; }
+                                                }
+                                                @keyframes fadeOut {
+                                                    from { opacity: 1; top: 20px; }
+                                                    to { opacity: 0; top: 0; }
+                                                }
+                                            `;
+                                            document.head.appendChild(style);
+                                            
+                                            document.getElementById('share-pic').style.display = 'inline-block';
+                                            document.getElementById('share-pic').addEventListener('click', function() {
+                                                navigator.share({
+                                                    title: 'Deals On Diamonds custom ring Builder',
+                                                    text: 'Check out this custom ring builder!',
+                                                    url: shareUrl
+                                                })
+                                                .then(() => console.log('Share successful'))
+                                                .catch((error) => console.log('Error sharing:', error));
+                                            });
+                                        } else {
+                                            console.error("Failed to send data", await response.text());
+                                        }
+                                    } catch (error) {
+                                        console.error("Error sending data:", error);
+                                    }
                                 },
                                 children: [(0, Nn.jsx)("img", {
                                     src: "./save.svg",
@@ -35091,47 +35069,7 @@ const shareUrl = `https://dealsondiamonds.com/3d-ring-builder//?id=${idw}`;
                              (0, Nn.jsx)("button", {
                                 className: "Save-btn",
                                 onClick: () => {    
-                                    // wn("all", "prongPave", true)
-    
-                                        // console.log(Mn.storeKey)  
-                                    
-                                    // console.log( yn.getState())
-                                    // let roge=yn.getState();
-                                    // // roge.band.ringSize.set(12)
-
-                                    // // roge.ringSize=12
-
-                                    // console.log(roge) 
-                                                    //bands
-                                        // Mn.getState().alterBand("ringSize" ,"12") working
-                                        // Mn.getState().alterBand("bandWidth" ,"2.5")
-                                        // Mn.getState().alterBand("bandStyle" ,"square") worjing
-                                        // Mn.getState().alterBand("bandPaveStyle" ,"pave") working
-                                        // Mn.getState().alterBand("bandPaveLength" ,"Eternity") working
-                                        // Mn.getState().alterBand("bandCathedral" ,true) working
-                                        // Mn.getState().alterBand("bandMetalColor","#FFCB7D") working
-                                        // Mn.getState().alterBand("bandFit","Standard Fit")   working   
-                                        // yn.getState()
-                                                    //number of head
-                                        // Mn.getState().changeNumberOfHeads('three')   working
-
-                                                    //head 
-                                        // Mn.getState().alterHeads("all","prongPave",true)  
-                                        // Mn.getState().alterHeads("center","prongMetalColor",'#ffffff')  working
-                                        Mn.getState().alterHeads("left","stone.caratWeight",4)
-                                        //  works but the prongs don't scale
-                                        // Mn.getState().alterStoneElevation() hopefully works
-                                        // 
-                                        
-                                        console.log(Mn.getState())  
-                                        console.log(yn.getState())    
-                                        // Mn.getState().alterHeads("center","prongCount",'4 Classic') 
-                                        // Mn.getState().alterHeads("all","basketHalo","Bezel") 
-                                        // Mn.getState().alterHeads("all","prongTip","Tab") 
-                                        // Mn.getState().alterHeads("center","stone.diamondShape","Oval")
                                     document.getElementById('wana').style.display = 'flex';
-
-
                                     
                                     document.getElementById('contactForm').addEventListener('submit', async function (e) {
                                         e.preventDefault(); 
@@ -35366,26 +35304,22 @@ const shareUrl = `https://dealsondiamonds.com/3d-ring-builder//?id=${idw}`;
                 setTimeout(() => {
                     const urlParams = new URLSearchParams(window.location.search);
                     const idoftheurl = urlParams.get('id'); 
-                    console.log("ID parameter:", idoftheurl);
                 
                     if(idoftheurl){
                         const apiUrl = `https://dealsondiamonds.com/wp-json/ring/v1/retrieve/${idoftheurl}`;
-                        console.log("Sending GET request to:", apiUrl);
                 
-                        // 3. Send the GET request
                         fetch(apiUrl)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! Status: ${response.status}`);
                         }
-                        return response.json(); // Parse JSON response
+                        return response.json(); 
                     })
                     .then(data => {
                         if (data.states_object) {
                             console.log("API Response:", data.states_object);
     
                             Object.entries(data.states_object.bandDetails).forEach(([key, value]) => {
-                                // Call alterState for each property data.states_object.bandDetails.numOfStones
                                 yn.getState().alterState(key, value);
                                 if (key =="numOfStones"){
                                     Mn.getState().changeNumberOfHeads(value)
