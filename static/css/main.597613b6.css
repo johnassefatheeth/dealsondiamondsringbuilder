@@ -64,7 +64,7 @@
 }
 #back-img {
     position: fixed;
-    top: 20px;
+    top: 10px;
     left: 20px;
     z-index: 1000;
     width: 40px;
@@ -72,26 +72,27 @@
 }
 #share-pic {
     position: fixed;
-    top: 20px;
+    top: 10px;
     right: 20px;
     z-index: 1000;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     opacity: 0.7;
     display: none;
 }
 #invs{
     position: fixed;
-    top: 20px;
+    top: 10px;
     left: 90px;
     z-index: 1000;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     opacity: 0.9;
     display: block;
     color: white;
     border: none;
     border-radius: 100%;
+    background: transparent;
 }
 #save-image{
     width: 40px;
@@ -300,9 +301,9 @@
 }
 
 .styles_btn_primary__DgUap {
-    background-color: #375944;
-    background: #375944;
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
+    background-color: #6366f1;
+    background: #8023dc;
+    background: linear-gradient(95.31deg, #6366f1 4.6%, #8023dc 98.79%);
     border: 1px solid #0000;
     color: #f5f5f5 !important
 }
@@ -636,7 +637,7 @@ input[type=number] {
     .PopUpModalContainer {
         animation: slide-right-to-left .5s cubic-bezier(.25, .46, .45, .94) both;
         bottom: 0;
-        height: calc(100vh - 70vw);
+        height: calc(100vh - 90vw);
         position: absolute;
         right: 0;
         width: 100%
@@ -659,9 +660,9 @@ input[type=number] {
 }
 
 .styles_container__5gwLD {
-    background-color: rgba(178, 177, 149, 0.11);
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 4px 0 #7574137b;
+    box-shadow: 0 4px 4px 0 #0000001a;
     margin: .3rem 0;
     padding: .5rem 0;
     transition: .2s;
@@ -773,7 +774,7 @@ input[type=number] {
 }
 
 .CPsection {
-    background-color: rgba(178, 177, 149, 0.11);
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -996,10 +997,10 @@ input[type=number] {
 
 .Save-btn {
     align-items: center;
-    background: linear-gradient(95.31deg, #d59e38 4.6%, #d4af37 98.79%);
+    background: linear-gradient(95.31deg, #9c742a 4.6%, #ae8d20 98.79%);
     border: none;
     border-radius: 5px;
-    box-shadow: 0 0 20px 4px #d4af37, 0 4px 80px -8px #d4af37, 0 4px 4px -2px #d4af37;
+    /* box-shadow: 0 0 20px 4px #d4af37, 0 4px 80px -8px #d4af37, 0 4px 4px -2px #d4af37; */
     color: #fff;
     cursor: pointer;
     font-family: Roboto, sans-serif;
@@ -1098,7 +1099,7 @@ input[type=number] {
 
 .Save-icon {
     align-items: center;
-    background-color: #01095100;
+    background:linear-gradient(95.31deg, #9c742a 4.6%, #ae8d20 98.79%);
     border: 1px solid #fff;
     border-radius: 5px;
     color: #fff;
@@ -1425,11 +1426,11 @@ input[type=number] {
     .Save-icon {
         border: none;
         height: auto;
-        margin-right: 0;
+        margin-right: 10;
         padding: 10px;
         position: fixed;
         right: 0;
-        top: 1px;
+        top: 10px;
         width: auto
     }
     .Save-icon img {
@@ -1441,7 +1442,7 @@ input[type=number] {
     }
     .ControlPanelContainer {
         bottom: 0;
-        height: calc(100vh - 70vw);
+        height: calc(100vh - 90vw);
         position: absolute;
         left: 0;
         width: 100%
