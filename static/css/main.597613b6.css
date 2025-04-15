@@ -20,12 +20,12 @@
 }
 
 .styles_loader__B1whZ {
-    animation: styles_spin__O4RtV 2.5s linear infinite;
+    animation: styles_spin__O4RtV 1s linear infinite;
     aspect-ratio: 1;
     border: 3px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 7px solid #ffb806;
-    width: 350px
+    border-top: 7px solid #8023dc;
+    width: 35px
 }
 
 .styles_loader_text__Z7\+\+G {
@@ -35,33 +35,6 @@
     font-weight: semi-bold
 }
 
-@keyframes styles_spin__O4RtV {
-    0% {
-        transform: rotate(0deg)
-    }
-    to {
-        transform: rotate(1turn)
-    }
-}
-.loading {
-    position: relative;
-    pointer-events: none;
-}
-.loading::after {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-}
 #back-img {
     position: fixed;
     top: 10px;
@@ -164,6 +137,15 @@
     background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
 }
 
+@keyframes styles_spin__O4RtV {
+    0% {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(1turn)
+    }
+}
+
 .tippy-box[data-animation=fade][data-state=hidden] {
     opacity: 0
 }
@@ -256,9 +238,9 @@
 .styles_btn__qwmIF {
     align-items: center;
     background-color: #fff;
-    border: 1px solid #375944;
+    border: 1px solid #6366f1;
     border-radius: 5px;
-    color: #375944;
+    color: #6366f1;
     cursor: pointer;
     display: flex;
     font-size: .875rem;
@@ -309,7 +291,7 @@
 }
 
 .styles_btn_primary_border__UoEWM {
-    border: 1px solid #375944;
+    border: 1px solid #6366f1;
     color: #000;
     font-weight: 700;
     padding-bottom: 12%;
@@ -319,9 +301,9 @@
 .styles_text_input__fnpPa {
     align-items: center;
     background-color: #fff;
-    border: 1px solid #375944;
+    border: 1px solid #6366f1;
     border-radius: 5px;
-    color: #375944;
+    color: #6366f1;
     display: flex;
     justify-content: center;
     margin-left: auto;
@@ -339,12 +321,12 @@
 .styles_submit__tIwIN {
     align-items: center;
     background-color: #fff;
-    background-color: #375944;
-    background: #375944;
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
+    background-color: #6366f1;
+    background: #8023dc;
+    background: linear-gradient(95.31deg, #6366f1 4.6%, #8023dc 98.79%);
     border: 1px solid #0000;
     border-radius: 5px;
-    color: #375944;
+    color: #6366f1;
     color: #f5f5f5;
     cursor: pointer;
     display: flex;
@@ -367,8 +349,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance: textfield;
-    appearance: textfield;
+    -moz-appearance: textfield
 }
 
 @media only screen and (max-width:600px) {
@@ -414,8 +395,8 @@ input[type=number] {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    background-color: #375944;
-    border: 4px solid #375944;
+    background-color: #5850ec;
+    border: 4px solid #5850ec;
     border-radius: 50%;
     cursor: pointer;
     height: 24px;
@@ -425,11 +406,11 @@ input[type=number] {
 }
 
 .slider::-webkit-slider-thumb:hover {
-    background-color: #375944
+    background-color: #4338ca
 }
 
 .slider::-moz-range-thumb {
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
+    background: linear-gradient(135deg, #6366f1 13.33%, #8023dc 86.67%);
     border: 1px solid #aaa;
     border-radius: 50%;
     cursor: pointer;
@@ -448,7 +429,7 @@ input[type=number] {
 
 .Limitspan {
     bottom: -180%;
-    color: #375944;
+    color: #6366f1;
     position: absolute;
     width: auto
 }
@@ -562,9 +543,9 @@ input[type=number] {
 
 .PMSavebtn {
     align-items: center;
-    background: #375944;
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
-    border: 1px solid #375944;
+    background: #8023dc;
+    background: linear-gradient(95.31deg, #6366f1 4.6%, #8023dc 98.79%);
+    border: 1px solid #6366f1;
     border-radius: 8px;
     display: flex;
     font-size: 1.25rem;
@@ -584,16 +565,16 @@ input[type=number] {
 }
 
 .PMSavebtn:hover {
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
-    border-color: #375944
+    background: linear-gradient(#4338ca, #4338ca);
+    border-color: #6366f1
 }
 
 .PMstyledbtn {
     align-items: center;
     background-color: #fff;
-    border: 2px solid #375944;
+    border: 2px solid #6366f1;
     border-radius: 8px;
-    color: #375944;
+    color: #6366f1;
     cursor: pointer;
     display: flex;
     font-size: 1.25rem;
@@ -637,7 +618,7 @@ input[type=number] {
     .PopUpModalContainer {
         animation: slide-right-to-left .5s cubic-bezier(.25, .46, .45, .94) both;
         bottom: 0;
-        height: calc(100vh - 90vw);
+        height: calc(100vh - 70vw);
         position: absolute;
         right: 0;
         width: 100%
@@ -655,7 +636,7 @@ input[type=number] {
         width: 80%
     }
     .PMstyledbtn {
-        background-color: #375944
+        background-color: #6366f1
     }
 }
 
@@ -770,11 +751,11 @@ input[type=number] {
 }
 
 #styleSB::-webkit-scrollbar-thumb {
-    background-color: #375944
+    background-color: #6366f1
 }
 
 .CPsection {
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -912,7 +893,7 @@ input[type=number] {
 }
 
 .NewCPfooter {
-    background-color: transparent;
+    background-color: #010951bf;
     border-radius: 8px;
     bottom: 1.5vh;
     height: 9vh;
@@ -932,7 +913,7 @@ input[type=number] {
     align-items: center;
     display: flex;
     height: 100%;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     text-align: center;
     width: 100%
 }
@@ -943,7 +924,7 @@ input[type=number] {
 
 .Fsection {
     display: flex;
-    justify-content: left;
+    justify-content: right;
     width: auto
 }
 
@@ -997,11 +978,10 @@ input[type=number] {
 
 .Save-btn {
     align-items: center;
-    background: linear-gradient(95.31deg, #9c742a 4.6%, #ae8d20 98.79%);
+    background-color: #fff;
     border: none;
     border-radius: 5px;
-    /* box-shadow: 0 0 20px 4px #d4af37, 0 4px 80px -8px #d4af37, 0 4px 4px -2px #d4af37; */
-    color: #fff;
+    color: #010951;
     cursor: pointer;
     font-family: Roboto, sans-serif;
     font-size: 1.25rem;
@@ -1017,7 +997,7 @@ input[type=number] {
 }
 
 .Save-btn:hover {
-    background-color: rgb(0, 249, 125)
+    background-color: #e0f7ff
 }
 
 .manufacture {
@@ -1047,9 +1027,9 @@ input[type=number] {
 
 .Savebtn {
     align-items: center;
-    background: #375944;
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
-    border: 1px solid #375944;
+    background: #8023dc;
+    background: linear-gradient(95.31deg, #6366f1 4.6%, #8023dc 98.79%);
+    border: 1px solid #6366f1;
     border-radius: 5px;
     color: #f5f5f5;
     cursor: pointer;
@@ -1067,16 +1047,16 @@ input[type=number] {
 .Savebtn:hover {
     background-color: #f5f5f5;
     background: #f5f5f5;
-    border-color: #375944;
-    color: #375944
+    border-color: #6366f1;
+    color: #6366f1
 }
 
 .styledbtn {
     align-items: center;
     background-color: #fff;
     background: #8023dc;
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
-    border: 2px solid #375944;
+    background: linear-gradient(318deg, #8023dc 45%, #6366f1);
+    border: 2px solid #6366f1;
     border-radius: 5px;
     color: #f5f5f5;
     cursor: pointer;
@@ -1094,12 +1074,12 @@ input[type=number] {
     background-color: #fff !important;
     background: none;
     border: 0 solid #000;
-    color: #375944
+    color: #6366f1
 }
 
 .Save-icon {
     align-items: center;
-    background:linear-gradient(95.31deg, #9c742a 4.6%, #ae8d20 98.79%);
+    background-color: #01095100;
     border: 1px solid #fff;
     border-radius: 5px;
     color: #fff;
@@ -1145,7 +1125,7 @@ input[type=number] {
 
 .Pro-btn {
     background-color: #fff;
-    border: 2px solid #375944;
+    border: 2px solid #6366f1;
     border-radius: 4px;
     cursor: pointer;
     height: 26px;
@@ -1159,7 +1139,7 @@ input[type=number] {
 }
 
 .prodiscription {
-    color: #375944;
+    color: #6366f1;
     font-family: Roboto, sans-serif;
     font-size: .7vw;
     justify-content: flex-start;
@@ -1351,23 +1331,13 @@ input[type=number] {
         flex-direction: column;
         width: 100%
     }
-    #share-pic {
-        position: fixed;
-        top: 90px;
-        left: 20px;
-        z-index: 1000;
-        width: 50px;
-        height: 50px;
-        opacity: 0.7;
-        display: none;
-    }
     .Mobile-message {
         color: #fff;
         display: block;
         padding: 2% 0 0
     }
     .CPfooter {
-        background-color: transparent;
+        background-color: #010951bf;
         height: 5rem;
         z-index: 99
     }
@@ -1378,7 +1348,7 @@ input[type=number] {
         width: 100%
     }
     .NewCPfooter {
-        background-color: transparent;
+        background-color: #383e75;
         height: 7rem;
         margin-left: 0;
         margin-right: 0;
@@ -1426,11 +1396,11 @@ input[type=number] {
     .Save-icon {
         border: none;
         height: auto;
-        margin-right: 10;
+        margin-right: 0;
         padding: 10px;
         position: fixed;
         right: 0;
-        top: 10px;
+        top: 1px;
         width: auto
     }
     .Save-icon img {
@@ -1442,9 +1412,9 @@ input[type=number] {
     }
     .ControlPanelContainer {
         bottom: 0;
-        height: calc(100vh - 90vw);
+        height: calc(100vh - 70vw);
         position: absolute;
-        left: 0;
+        right: 0;
         width: 100%
     }
     .CPTitle {
@@ -1503,8 +1473,8 @@ input[type=number] {
     .Savebtn {
         align-items: center;
         background: none;
-        background-color: #375944;
-        border: 1px solid #375944;
+        background-color: #6366f1;
+        border: 1px solid #6366f1;
         border-radius: 5px;
         color: #f5f5f5;
         cursor: pointer;
@@ -1519,15 +1489,15 @@ input[type=number] {
         width: 80%
     }
     .Savebtn:hover {
-        background-color: #375944;
+        background-color: #f5f5f5;
         background: #f5f5f5;
-        border-color: #375944;
-        color: #375944
+        border-color: #6366f1;
+        color: #6366f1
     }
     .styledbtn {
         align-items: center;
-        background-color: #375944;
-        border: 2px solid #375944;
+        background-color: #6366f1;
+        border: 2px solid #6366f1;
         border-radius: 5px;
         color: #fff;
         cursor: pointer;
@@ -1542,7 +1512,7 @@ input[type=number] {
     }
     .styledbtn:hover {
         background: #8023dc;
-        background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
+        background: linear-gradient(318deg, #8023dc 45%, #6366f1);
         border: 0 solid #000;
         color: #f5f5f5
     }
@@ -1561,8 +1531,7 @@ input:focus {
 
 input,
 textarea {
-    -webkit-user-select: none;
-    user-select: none;
+    -webkit-user-select: none
 }
 
 .App {
@@ -1576,7 +1545,7 @@ textarea {
 }
 
 .wrapper {
-    background-image: url(https://dealsondiamonds.com/3d-ring-builder/static/media/bg%20desktop.ed3a0d5369575e850813.jpg);
+    background-image: url(/static/media/bg%20desktop.ed3a0d5369575e850813.jpg);
     background-position: bottom;
     background-size: cover;
     height: 100%;
@@ -1627,12 +1596,12 @@ html {
 
 .engraving_toast button:first-child {
     background-color: #fff;
-    border: 2px solid #375944;
-    color: #375944
+    border: 2px solid #6366f1;
+    color: #6366f1
 }
 
 .engraving_toast button:nth-child(2) {
-    background-color: #375944;
+    background-color: #6366f1;
     border: 2px solid #fff;
     color: #fff
 }
@@ -1656,7 +1625,7 @@ html {
         background-color: #d5d5d5
     }
     .RingmobileContainer {
-        background-image: url(https://dealsondiamonds.com/3d-ring-builder/static/media/bg%20desktop.ed3a0d5369575e850813.jpg);
+        background-image: url(/static/media/bgmobilecompressed.f789915f2e755b7f46db.jpg);
         background-position: bottom;
         background-size: cover;
         display: block;
