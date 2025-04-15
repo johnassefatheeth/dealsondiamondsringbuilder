@@ -618,7 +618,7 @@ input[type=number] {
     .PopUpModalContainer {
         animation: slide-right-to-left .5s cubic-bezier(.25, .46, .45, .94) both;
         bottom: 0;
-        height: calc(100vh - 70vw);
+        height: calc(100vh - 100vw);
         position: absolute;
         right: 0;
         width: 100%
@@ -1412,7 +1412,7 @@ input[type=number] {
     }
     .ControlPanelContainer {
         bottom: 0;
-        height: calc(100vh - 70vw);
+        height: calc(100vh - 100vw);
         position: absolute;
         right: 0;
         width: 100%
