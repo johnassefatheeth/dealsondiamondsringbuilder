@@ -34979,7 +34979,7 @@
                                             const data = await response.json();
                                             console.log("API Response:", data);
                                             const idw = data?.unique_id ?? idoftheurl ?? 'default-fallback-id';
-                                            const shareUrl = `https://dealsondiamonds.com/3d-ring-builder//?id=${idw}`;
+                                            const shareUrl = `https://dealsondiamonds.com/3d-ring-builder/?id=${idw}`;
                                             let ringName
                                             if(data.unique_id){
                                                 ringName = prompt("Please give your ring design a name:", "My Custom Ring")

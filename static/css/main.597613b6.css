@@ -67,6 +67,17 @@
     border-radius: 100%;
     background: transparent;
 }
+#textonlink{
+    position: fixed;
+    top: 50px;
+    left: 15px;
+    z-index: 1000;
+    text-decoration: none;
+    display: block;
+    justify-content:center;
+    align:center;
+    
+}
 #save-image{
     width: 40px;
     height: 40px;
@@ -128,13 +139,13 @@
     box-sizing: border-box;
 }
 #wana button[type="submit"] {
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
+    background: linear-gradient(95.31deg, #6366f1 4.6%, #8023dc 98.79%);
     color: white;
     border: none;
     cursor: pointer;
 }
 #wana button[type="submit"]:hover {
-    background: linear-gradient(95.31deg, #375944 4.6%, #3a7c53 98.79%);
+    background: linear-gradient(#4338ca, #4338ca);
 }
 
 @keyframes styles_spin__O4RtV {
