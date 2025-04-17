@@ -56,10 +56,10 @@
 #invs{
     position: fixed;
     top: 10px;
-    left: 90px;
+    left: 240px;
     z-index: 1000;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     opacity: 0.9;
     display: block;
     color: white;
@@ -67,20 +67,20 @@
     border-radius: 100%;
     background: transparent;
 }
-#textonlink{
+#textonlink {
     position: fixed;
-    top: 50px;
+    top: 10px;
     left: 15px;
     z-index: 1000;
     text-decoration: none;
-    display: block;
-    justify-content:center;
-    align-items: center;
-    color: #666666;
+    color: rgb(35, 35, 35); /* Slightly gray instead of pure black */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean, formal font */
+    font-size:24px; 
+    font-weight: 500; 
 }
 #save-image{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background: transparent;
 }
 @keyframes spin {

@@ -38,7 +38,9 @@
             <h1>request sent successfuly<br> we will contact you soon</h1>
     </div>
 
-    <a href="https://dealsondiamonds.com/"><img id="back-img" src="./home-1-svgrepo-com (2).png" alt="home"><h5 id="textonlink">Deals on<br>Diamonds</h5></a>
+    <a href="https://dealsondiamonds.com/">
+        <!-- <img id="back-img" src="./home-1-svgrepo-com (2).png" alt="home"> -->
+        <h2 id="textonlink">Deals On Diamonds</h2></a>
 
     <img src="./share-svgrepo-com.png" id="share-pic" alt="share">
     <button id="invs">
@@ -118,157 +120,156 @@ setTimeout(() => {
 
     
     function showSavedDesignsPopup() {
-        const savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
-        
-        const popup = document.createElement('div');
-        popup.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 350px;
-            max-height: 70vh;
-            overflow-y: auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            padding: 20px;
-            z-index: 1000;
-            animation: fadeIn 0.3s;
-        `;
-        
-        const header = document.createElement('div');
-        header.style.cssText = `
-            padding: 10px;
-            background: #e8f5e9;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            color: #2e7d32;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        `;
-        header.innerHTML = `<span>Your Saved Rings</span>`;
-        popup.appendChild(header);
-        
-        if (Object.keys(savedDesigns).length === 0) {
-            const emptyMsg = document.createElement('p');
-            emptyMsg.textContent = 'No saved designs yet';
-            emptyMsg.style.textAlign = 'center';
-            popup.appendChild(emptyMsg);
-        } else {
-            for (const [name, url] of Object.entries(savedDesigns)) {
-                const designItem = document.createElement('div');
-                designItem.style.cssText = `
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 10px;
-                    margin: 8px 0;
-                    background: #f1f8e9;
-                    border-radius: 5px;
-                    border-left: 4px solid #81c784;
-                    transition: all 0.2s;
-                `;
-                
-                const contentArea = document.createElement('div');
-                contentArea.style.cssText = `flex: 1; cursor: pointer;`;
-                contentArea.innerHTML = `
-                    <div style="font-weight: bold; color: #2e7d32">${name}</div>
-                    <div style="font-size: 12px; color: #666; word-break: break-all;">${url}</div>
-                `;
-                
-                contentArea.addEventListener('click', () => {
-                    window.open(url, '_blank');
-                });
-                
-                const deleteBtn = document.createElement('button');
-                deleteBtn.innerHTML = '&times;';
-                deleteBtn.style.cssText = `
-                    background: #ff6b6b;
-                    color: white;
-                    border: none;
-                    border-radius: 50%;
-                    width: 25px;
-                    height: 25px;
-                    margin-left: 10px;
-                    cursor: pointer;
-                    font-size: 14px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                `;
-                
-                deleteBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    delete savedDesigns[name];
-                    localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
-                    document.body.removeChild(popup);
-                    document.body.removeChild(overlay);
-                    showSavedDesignsPopup();
-                });
-                
-                designItem.addEventListener('mouseenter', () => {
-                    designItem.style.background = '#dcedc8';
-                });
-                designItem.addEventListener('mouseleave', () => {
-                    designItem.style.background = '#f1f8e9';
-                });
-                
-                designItem.appendChild(contentArea);
-                designItem.appendChild(deleteBtn);
-                popup.appendChild(designItem);
-            }
+    const savedDesigns = JSON.parse(localStorage.getItem('savedRingDesigns')) || {};
+    
+    const popup = document.createElement('div');
+    popup.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        max-height: 70vh;
+        overflow-y: auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        padding: 20px;
+        z-index: 1000;
+        animation: fadeIn 0.3s;
+    `;
+    
+    const header = document.createElement('div');
+    header.style.cssText = `
+        padding: 10px;
+        background: #e0e7ff;  // Lighter indigo background
+        border-radius: 5px;
+        margin-bottom: 15px;
+        color: #4338ca;       // Main indigo color
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    `;
+    header.innerHTML = `<span>Your Saved Rings</span>`;
+    popup.appendChild(header);
+    
+    if (Object.keys(savedDesigns).length === 0) {
+        const emptyMsg = document.createElement('p');
+        emptyMsg.textContent = 'No saved designs yet';
+        emptyMsg.style.textAlign = 'center';
+        popup.appendChild(emptyMsg);
+    } else {
+        for (const [name, url] of Object.entries(savedDesigns)) {
+            const designItem = document.createElement('div');
+            designItem.style.cssText = `
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                margin: 8px 0;
+                background: #eef2ff;  // Very light indigo
+                border-radius: 5px;
+                border-left: 4px solid #4338ca;  // Accent border
+                transition: all 0.2s;
+            `;
+            
+            const contentArea = document.createElement('div');
+            contentArea.style.cssText = `flex: 1; cursor: pointer;`;
+            contentArea.innerHTML = `
+                <div style="font-weight: bold; color: #4338ca">${name}</div>
+                <div style="font-size: 12px; color: #666; word-break: break-all;">${url}</div>
+            `;
+            
+            contentArea.addEventListener('click', () => {
+                window.open(url, '_blank');
+            });
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.innerHTML = '&times;';
+            deleteBtn.style.cssText = `
+                background: #ff6b6b;  // Keeping red for delete (contrasts well)
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                margin-left: 10px;
+                cursor: pointer;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                delete savedDesigns[name];
+                localStorage.setItem('savedRingDesigns', JSON.stringify(savedDesigns));
+                document.body.removeChild(popup);
+                document.body.removeChild(overlay);
+                showSavedDesignsPopup();
+            });
+            
+            designItem.addEventListener('mouseenter', () => {
+                designItem.style.background = '#d7dafe';  // Slightly darker on hover
+            });
+            designItem.addEventListener('mouseleave', () => {
+                designItem.style.background = '#eef2ff';
+            });
+            
+            designItem.appendChild(contentArea);
+            designItem.appendChild(deleteBtn);
+            popup.appendChild(designItem);
         }
-        
-        const closeButton = document.createElement('button');
-        closeButton.textContent = 'Close';
-        closeButton.style.cssText = `
-            display: block;
-            margin: 15px auto 0;
-            padding: 8px 20px;
-            background: #81c784;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        `;
-        closeButton.addEventListener('click', () => {
-            document.body.removeChild(popup);
-            document.body.removeChild(overlay);
-        });
-        popup.appendChild(closeButton);
-        
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-        `;
-        
-        overlay.addEventListener('click', () => {
-            document.body.removeChild(popup);
-            document.body.removeChild(overlay);
-        });
-        
-        document.body.appendChild(overlay);
-        document.body.appendChild(popup);
-        
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translate(-50%, -45%); }
-                to { opacity: 1; transform: translate(-50%, -50%); }
-            }
-        `;
-        document.head.appendChild(style);
     }
-
+    
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.style.cssText = `
+        display: block;
+        margin: 15px auto 0;
+        padding: 8px 20px;
+        background: #6366f1;  // Main indigo color
+        text-color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    `;
+    closeButton.addEventListener('click', () => {
+        document.body.removeChild(popup);
+        document.body.removeChild(overlay);
+    });
+    popup.appendChild(closeButton);
+    
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    `;
+    
+    overlay.addEventListener('click', () => {
+        document.body.removeChild(popup);
+        document.body.removeChild(overlay);
+    });
+    
+    document.body.appendChild(overlay);
+    document.body.appendChild(popup);
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -45%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+    `;
+    document.head.appendChild(style);
+}
     
     function showExitModal() {
         const modal = document.createElement("div");
@@ -295,7 +296,7 @@ setTimeout(() => {
                     padding: 8px 16px;
                     border: none;
                     border-radius: 4px;
-                    background: #375944;
+                    background: #6366f1;
                     color: white;
                     font-weight: bold;
                     cursor: pointer;
